@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DependencyCheckerConfiguration version="2.0">
+	<title>Windows Azure Web Sites and Cloud Services Demo</title>
+	<dependencies>
+		<dependency
+			hint="Microsoft Visual Studio (?:Ultimate 2012 RC|Premium 2012 RC|Professional 2012 RC|Express 2012 for Windows 8).*;11.0"
+			name="Microsoft Visual Studio 2012"
+			description="Microsoft Visual Studio Ultimate 2012, Microsoft Visual Studio Premium 2012, Microsoft Visual Studio Professional 2012 or Microsoft Visual Studio 2012 Express for Windows 8"
+			helpLink="http://go.microsoft.com/fwlink/?LinkId=237306"
+			disableSkip="false"
+			type="Uninstall" /> 
+    
+		<dependency 
+			hint="Git version *" 
+			name="GIT Version Control System" 
+			description="Git is a free and open source distributed version control system." 
+			helpLink="http://git-scm.com/download" 
+			disableSkip="false"
+			type="Uninstall" />
+    
+		<dependency
+			hint="VWDOrVs11AzurePack_RC"
+			name="Windows Azure SDK for .NET"
+			helpLink=""
+			disableSkip="false"
+			type="WebPI" />			
+	</dependencies>
+  <setupCommands>
+  </setupCommands>
+</DependencyCheckerConfiguration>
