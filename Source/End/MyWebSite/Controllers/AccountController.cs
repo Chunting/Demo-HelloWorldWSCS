@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using MeetAzure.Models;
+using MyWebSite.Models;
 
-namespace MeetAzure.Controllers
+namespace MyWebSite.Controllers
 {
 
     [Authorize]

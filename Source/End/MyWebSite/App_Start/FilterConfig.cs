@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace MeetAzure
+namespace MyWebSite
 {
     public class FilterConfig
     {

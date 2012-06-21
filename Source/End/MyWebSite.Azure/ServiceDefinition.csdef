@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ServiceDefinition name="MeetAzure.Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2012-05.1.7">
-  <WebRole name="MeetAzure" vmsize="Small">
+<ServiceDefinition name="MyWebSite.Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2012-05.1.7">
+  <WebRole name="MyWebSite" vmsize="Small">
     <Sites>
       <Site name="Web">
         <Bindings>

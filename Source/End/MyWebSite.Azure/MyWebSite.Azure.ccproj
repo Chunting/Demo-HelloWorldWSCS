@@ -5,13 +5,13 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>1.7</ProductVersion>
-    <ProjectGuid>d0eb76ba-346a-482a-a15d-451a5f8278d0</ProjectGuid>
+    <ProjectGuid>5863c0d6-142e-43f7-9a7b-4ec5d4e2623f</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MeetAzure.Azure</RootNamespace>
-    <AssemblyName>MeetAzure.Azure</AssemblyName>
+    <RootNamespace>MyWebSite.Azure</RootNamespace>
+    <AssemblyName>MyWebSite.Azure</AssemblyName>
     <StartDevelopmentStorage>True</StartDevelopmentStorage>
-    <Name>MeetAzure.Azure</Name>
+    <Name>MyWebSite.Azure</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,18 +39,18 @@
   <ItemGroup>
     <ProjectReference Include="..\BackgroundService\BackgroundService.csproj">
       <Name>BackgroundService</Name>
-      <Project>{43ee83e6-2fcf-4a41-baea-eb857d748878}</Project>
+      <Project>{6ad33bbe-5245-4dcf-ad56-b53b623e0736}</Project>
       <Private>True</Private>
       <RoleType>Worker</RoleType>
       <RoleName>BackgroundService</RoleName>
       <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
     </ProjectReference>
-    <ProjectReference Include="..\MeetAzure\MeetAzure.csproj">
-      <Name>MeetAzure</Name>
-      <Project>{6ea88dcb-294f-4526-924a-421070b78e4b}</Project>
+    <ProjectReference Include="..\MyWebSite\MyWebSite.csproj">
+      <Name>MyWebSite</Name>
+      <Project>{092ae8a8-51f0-4792-90e4-d17efbdfa468}</Project>
       <Private>True</Private>
       <RoleType>Web</RoleType>
-      <RoleName>MeetAzure</RoleName>
+      <RoleName>MyWebSite</RoleName>
       <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
     </ProjectReference>
   </ItemGroup>
