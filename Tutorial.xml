@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tutorial xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/ContentFramework.Core.Models">
+	<Id>Demo-HelloWorldWSCS</Id>
+	<Author>
+		<Name></Name>
+	</Author>
+	<Description>In this demo we are showing how to create Web Sites and Cloud Services using the Windows Azure Management Portal and Visual Studio 2012.</Description>
+	<Document ConversionType="Html">Tutorial.md</Document>
+	<Title>Windows Azure Web Sites and Cloud Services</Title>
+	<Version>1.2.0</Version>
+	<Source>.\Source</Source>
+<CustomProperties>    
+	<Property Name="GitHubRepository" Value="https://github.com/WindowsAzure-Preview/Demo-HelloWorldWSCS" />
+</CustomProperties>  
+</Tutorial>
