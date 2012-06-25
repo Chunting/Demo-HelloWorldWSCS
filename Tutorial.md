@@ -123,7 +123,6 @@ public ActionResult Index()
 git init 
 git add . 
 git commit -m "initial commit"
-
 git remote add azure https://User01@newazurewebsite.scm.azurewebsites.net/newazurewebsite.git 
 git push azure master
 ````
