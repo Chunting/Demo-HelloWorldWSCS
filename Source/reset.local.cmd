@@ -39,6 +39,6 @@ ECHO ========= Installing SnapIns =========
 ECHO Installing SnapIns Done!
 
 cls
-%powerShellDir%\powershell.exe -NonInteractive -command ".\Reset\reset.local.ps1" ".\Reset\reset.local.xml"
+%powerShellDir%\powershell.exe -NonInteractive -command ".\Reset\reset.local.ps1" "reset.local.xml"
 
 @pause

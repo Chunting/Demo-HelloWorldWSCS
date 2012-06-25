@@ -62,20 +62,23 @@ if(-NOT (Test-Path $demoToolkitFolderPath))
 	New-Item $demoToolkitFolderPath -type directory | Out-Null
 }
 $demoToolkitFolderPath = Resolve-Path $demoToolkitFolderPath
-	
-$filePath = Join-Path $demoToolkitFolderPath "demo-toolkit.zip"
-
-if(-NOT (Test-Path $filePath))
+$demoToolkitAssemblyPath = Join-Path $demoToolkitFolderPath 'DemoToolkit.Cmdlets.dll'
+if(-NOT (Test-Path ($demoToolkitAssemblyPath )))
 {
-	Write-host "Downloading..."
-	
-    # Download demo-toolkit.zip File
-    DownloadFile $filePath
-    
-    # UnBlock demo-toolkit.zip File (Zone.Identifier)
-    UnblockFile $filePath
+	$filePath = Join-Path $demoToolkitFolderPath "demo-toolkit.zip"
+
+	if(-NOT (Test-Path $filePath))
+	{
+		Write-host "Downloading..."
+		
+		# Download demo-toolkit.zip File
+		DownloadFile $filePath
+		
+		# UnBlock demo-toolkit.zip File (Zone.Identifier)
+		UnblockFile $filePath
+	}
+
+	$filePath = Resolve-Path $filePath
+
+	Unzip $filePath $demoToolkitFolderPath
 }
-
-$filePath = Resolve-Path $filePath
-
-Unzip $filePath $demoToolkitFolderPath

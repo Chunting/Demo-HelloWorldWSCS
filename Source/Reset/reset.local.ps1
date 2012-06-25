@@ -22,6 +22,7 @@ if($configFile -eq $nul -or $configFile -eq "")
 [xml]$xml = Get-Content $configFile
 
 [string] $demoWorkingDir = $xml.configuration.localPaths.demoWorkingDir
+[string] $myWebSiteBeginSolutionDir = $xml.configuration.localPaths.myWebSiteBeginSolutionDir
 [string] $publishProfilesDir = $xml.configuration.localPaths.publishProfilesDir
 [string] $vsSettingsFile = $xml.configuration.localPaths.vsSettingsFile
 
