@@ -1,0 +1,41 @@
+<configuration>	
+	<localPaths>
+		<demoWorkingDir>C:\Projects</demoWorkingDir>
+		<beginSolutionDir>..\src\MessageReceiver</beginSolutionDir>		
+		<demoSolutionFile>C:\Projects\MessageReceiver\MessageReceiver.sln</demoSolutionFile>		
+		<vsSettingsFile>..\assets\VS2012Settings-Font-Output.vssettings</vsSettingsFile>
+		<messageDocxFile>..\assets\message.docx</messageDocxFile>
+		<manualResetFile>..\assets\Manual Reset.txt</manualResetFile>
+		<azureNodeSDKDir>..\assets\azure-sdk-for-node</azureNodeSDKDir>		
+	</localPaths>
+	
+	<codeSnippets>
+		<cSharp>..\assets\snippets\csharp</cSharp>
+		<html>..\assets\snippets\html</html>
+		<xml>..\assets\snippets\xml\primary</xml>		
+	</codeSnippets>
+	
+	<features>
+		<enableWebSitesDelete>true</enableWebSitesDelete>
+	</features>
+	
+	<windowsAzureSubscription>
+		<!-- The file below should be replace with your custom publish settings -->
+		<publishSettingsFile>..\assets\demo.publishsettings</publishSettingsFile>
+		<webSitesToKeep></webSitesToKeep>
+	</windowsAzureSubscription>	
+	
+	<nuget>
+		<sourceName>Windows Azure SDK package source</sourceName>
+		<sourcePath>%ProgramFiles%\Microsoft SDKs\Windows Azure\.NET SDK\2012-06\packages</sourcePath>
+	</nuget>
+	
+	<urls>
+		<windowsAzureMgmtPortal>http://manage.windowsazure.com</windowsAzureMgmtPortal>		
+	</urls>
+
+	<!-- This setting is duplicatedin the reset.azure.xml file for cleaning Azure queues -->
+	<sb>
+        <connectionString>Endpoint={replace with your endpoint url};SharedSecretIssuer={replace with issuer name};SharedSecretValue={replace with secret value}</connectionString>
+	</sb>
+</configuration>

@@ -1,0 +1,174 @@
+Param([string] $configFile)
+
+$scriptDir = (split-path $myinvocation.mycommand.path -parent)
+Set-Location $scriptDir
+
+if ((Get-PSSnapin -Registered | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
+	Write-Host "Demo Toolkit Snapin not installed." -ForegroundColor Red
+	Write-Host "Install it from https://github.com/microsoft-dpe/demo-tools/tree/master/demo-toolkit/bin" -ForegroundColor Red
+	return;
+} 
+if ((Get-PSSnapin | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
+	Add-PSSnapin DemoToolkitSnapin	
+} 
+
+# "========= Initialization =========" #
+pushd ".."
+if($configFile -eq $nul -or $configFile -eq "")
+{
+	$configFile = "configuration.xml"
+}
+
+# Get the key and account setting from configuration using namespace
+[xml]$xml = Get-Content $configFile
+
+[string] $demoWorkingDir = $xml.configuration.localPaths.demoWorkingDir
+[string] $beginSolutionDir = $xml.configuration.localPaths.beginSolutionDir
+[string] $azureNodeSDKDir = $xml.configuration.localPaths.azureNodeSDKDir
+[string] $demoSolutionFile = $xml.configuration.localPaths.demoSolutionFile
+[string] $vsSettingsFile = $xml.configuration.localPaths.vsSettingsFile
+[string] $manualResetFile = $xml.configuration.localPaths.manualResetFile
+[string] $messageDocxFile = $xml.configuration.localPaths.messageDocxFile
+
+[string] $CSharpSnippets = $xml.configuration.codeSnippets.cSharp
+[string] $htmlSnippets = $xml.configuration.codeSnippets.html
+[string] $xmlSnippets = $xml.configuration.codeSnippets.xml
+
+[string] $wazPublishSettings = $xml.configuration.windowsAzureSubscription.publishSettingsFile
+[string] $webSitesToKeep = $xml.configuration.windowsAzureSubscription.webSitesToKeep
+
+[bool] $enableWebSitesDelete = [System.Convert]::ToBoolean($xml.configuration.features.enableWebSitesDelete)
+
+[string] $nugetSourceName = $xml.configuration.nuget.sourceName
+[string] $nugetSourcePath = $xml.configuration.nuget.sourcePath
+
+[string] $windowsAzureMgmtPortal = $xml.configuration.urls.windowsAzureMgmtPortal
+[string] $connectionString = $xml.configuration.sb.connectionString
+
+$beginSolutionDir = Resolve-Path $beginSolutionDir
+$azureNodeSDKDir = Resolve-Path $azureNodeSDKDir
+$vsSettingsFile = Resolve-Path $vsSettingsFile
+$manualResetFile = Resolve-Path $manualResetFile
+$messageDocxFile = Resolve-Path $messageDocxFile
+$CSharpSnippets = Resolve-Path $CSharpSnippets
+$htmlSnippets = Resolve-Path $htmlSnippets
+$xmlSnippets = Resolve-Path $xmlSnippets
+$wazPublishSettings = Resolve-Path $wazPublishSettings
+
+popd
+
+# "========= Main Script =========" #
+
+write-host "========= Closing Visual Studio... ========="
+Close-VS -Force
+Start-Sleep -s 2
+write-host "Closing Visual Studio Done!"
+
+write-host "========= Closing Notepad... ========="
+Close-Process "notepad" -Force
+Start-Sleep -s 1
+write-host "Closing Notepad Done!"
+
+write-host "========= Closing IE... ========="
+Close-IE -Force
+Start-Sleep -s 2
+write-host "Closing IE Done!"
+
+write-host "========= Clearing IE History ========="
+# Clear-IEFormData -ClearStoredPasswords
+Clear-IEFormData
+Clear-IEHistory
+# Clear-IECookies
+write-host "Clearing IE History Done!"
+
+write-host "========= Set IE AutoComplete Settings ========="
+Set-SetIEAutoCompleteSettings -AutoCompleteForms  $false -AutoCompleteUsernamesAndPasswords $false -AskBeforeSavingPasswords $false
+write-host "Set IE AutoComplete Settings Done!"
+
+write-host "========= Disabling IE Download Notify... ========="
+Set-IEDownloadNotify -Disable
+write-host "Disabling IE Download Notify done!"
+
+& ".\cleanup-iis-resources.ps1"
+
+& ".\cleanup-downloads-folder.ps1"
+
+if ($wazPublishSettings -ne "" -and $wazPublishSettings -ne $nul) {
+& ".\import-waz-publishsettings.ps1" -azureNodeSDKDir $azureNodeSDKDir -wazPublishSettings $wazPublishSettings
+
+if ($enableWebSitesDelete) {
+& ".\delete-websites.ps1" -azureNodeSDKDir $azureNodeSDKDir -webSitesToKeep $webSitesToKeep
+}
+}
+
+& ".\import-vssettings.ps1" -vsSettingsFile $vsSettingsFile
+
+write-host "========= Removing VS most recently used projects... ========="
+Clear-VSProjectMRUList
+Clear-VSFileMRUList
+write-host "Removing VS most recently used projects done!"
+
+& ".\remove-workingdir.ps1"
+
+& ".\remove-azure-vssettings.ps1"
+
+& ".\remove-desktop-publishsettings.ps1"
+
+& ".\empty-recyclebin.ps1"
+
+
+write-host "========= Setting VS New Project Dialog Defaults... ========="
+Set-VSNewProjectDialogDefaults -FxVersion 4.0 -TemplateName 'ASP.NET MVC 4 Web Application' -TemplateNode 'Templates\Visual C#\Web' -Path "$demoWorkingDir"
+write-host "Setting VS New Project Dialog Defaults done!"
+
+write-host "========= Setting VS Open Project Dialog Defaults... ========="
+Set-VSOpenProjectDialogDefaults -Location "$demoWorkingDir" -All
+write-host "Setting VS Open Project Dialog Defaults done!"
+
+write-host "========= Copying Begin solution to working directory... ========="
+Copy-Item "$beginSolutionDir" "$demoWorkingDir" -recurse -Force
+write-host "Copying Begin solution to working directory done!"
+
+$appConfigFileName = Join-Path $demoWorkingDir "MessageReceiver\MessageReceiver\app.config"
+[string] $appSettingKey = "Microsoft.ServiceBus.ConnectionString" 
+
+& ".\update-config-value.ps1" -appConfigFileName $appConfigFileName -appSettingKey $appSettingKey -appSettingValue $connectionString
+
+& ".\install-code-snippets.ps1" -CSharpSnippets $CSharpSnippets -htmlSnippets $htmlSnippets -xmlSnippets $xmlSnippets
+
+write-host "========= Creating Link in Windows Explorer Favories... ========="
+Add-WindowsExplorerFavorite "Projects" $demoWorkingDir
+write-host "Creating Link in Windows Explorer Favories done!"
+
+write-host "========= Adding a new Package Nuget source... ========="
+Add-NugetSource "$nugetSourceName" "$nugetSourcePath" -Force
+write-host "Adding a new Package Nuget source done!"
+
+write-host "========= Enabling NuGet Restore on Build... ========="
+Set-NuGetRestoreOnBuild -Enable
+write-host "Enabling NuGet Restore on Build done!"
+
+write-host "========= Launching Word ========="
+& "C:\Program Files\Microsoft Office\Office14\winword.exe" @("$messageDocxFile")
+write-host "Launching Word Done!"
+
+write-host "========= Launching IE ========="
+Start-IE "$windowsAzureMgmtPortal"
+write-host "Launching IE Done!"
+
+write-host "========= Starting Visual Studio... ========="
+Start-VS 
+Start-Sleep -s 2
+write-host "Starting Visual Studio Done!"
+
+write-host "========= Starting Visual Studio with solution... ========="
+[string] $solution = Resolve-Path $demoSolutionFile
+Start-VS -SolutionFile $solution
+Start-Sleep -s 2
+write-host "Starting Visual Studio Done!"
+
+write-host "========= Opening Manual Reset steps file... ========="
+[string] $desktopFolder = [Environment]::GetFolderPath("Desktop")
+$manualResetFile = Resolve-Path $manualResetFile
+& "notepad" @("$manualResetFile")
+write-host "Opening Manual Reset steps file Done!"

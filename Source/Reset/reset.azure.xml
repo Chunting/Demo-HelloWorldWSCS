@@ -1,0 +1,6 @@
+<configuration>	
+	<!-- This setting is duplicatedin the reset.config.xml file for updating app.copfig files -->
+	<sb>
+        <connectionString>Endpoint={replace with your endpoint url};SharedSecretIssuer={replace with issuer name};SharedSecretValue={replace with secret value}</connectionString>
+	</sb>
+</configuration>
