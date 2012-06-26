@@ -10,8 +10,28 @@ In this demo we are showing how to create Web Sites and Cloud Services using the
 <a name="technologies" />
 ### Key Technologies ###
 
-- Microsoft Visual Studio 2012
-- Windows Azure Tools for Microsoft Visual Studio 1.7
+- Windows Azure subscription - you can sign up for free trial [here][1]
+- [Microsoft Visual Studio 2012 RC][2]
+- [Windows Azure SDK for .NET - June 2012][3]
+- [NuGet Package Manager][4]
+
+[1]: http://bit.ly/WindowsAzureFreeTrial
+[2]: http://www.microsoft.com/visualstudio/11/en-us
+[3]:http://www.microsoft.com/en-us/download/details.aspx?id=29988
+[4]: http://nuget.org/
+
+<a name="setup" />
+### Setup and Configuration ###
+
+In order to execute this demo you need to set up your environment.
+
+1. Open Windows Explorer and browse to the demo's **Source** folder.
+
+1. Execute the **Setup.cmd** file with Administrator privileges to launch the setup process that will verify all the prerequisites and install the Visual Studio code snippets for this demo.
+
+1. If the User Account Control dialog is shown, confirm the action to proceed.
+
+>**Note:** Make sure you have checked all the dependencies for this demo before proceeding.
 
 <a name="Tutorial" />
 ## Tutorial ##
