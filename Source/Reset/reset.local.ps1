@@ -13,7 +13,6 @@ if ((Get-PSSnapin | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
 } 
 
 # "========= Initialization =========" #
-pushd ".."
 if($configFile -eq $nul -or $configFile -eq "")
 {
 	$configFile = "reset.local.xml"
@@ -23,13 +22,9 @@ if($configFile -eq $nul -or $configFile -eq "")
 [xml]$xml = Get-Content $configFile
 
 [string] $demoWorkingDir = $xml.configuration.localPaths.demoWorkingDir
-[string] $cachingBeginSolutionDir = $xml.configuration.localPaths.cachingBeginSolutionDir
-[string] $sbrelayBeginSolutionDir = $xml.configuration.localPaths.sbrelayBeginSolutionDir
+[string] $myWebSiteBeginSolutionDir = $xml.configuration.localPaths.myWebSiteBeginSolutionDir
 [string] $publishProfilesDir = $xml.configuration.localPaths.publishProfilesDir
 [string] $vsSettingsFile = $xml.configuration.localPaths.vsSettingsFile
-[string] $sbOnPremiseSolution = $xml.configuration.localPaths.sbOnPremiseSolution
-[string] $sbCloudSolution = $xml.configuration.localPaths.sbCloudSolution
-[string] $CSharpSnippets = $xml.configuration.codeSnippets.cSharp
 
 [string] $nugetSourceName = $xml.configuration.nuget.sourceName
 [string] $nugetSourcePath = $xml.configuration.nuget.sourcePath
@@ -37,13 +32,8 @@ if($configFile -eq $nul -or $configFile -eq "")
 [string] $windowsAzureMgmtPortal = $xml.configuration.urls.windowsAzureMgmtPortal
 [string] $windowsAzurePortal = $xml.configuration.urls.windowsAzurePortal
 
-$cachingBeginSolutionDir = Resolve-Path $cachingBeginSolutionDir
-$sbrelayBeginSolutionDir = Resolve-Path $sbrelayBeginSolutionDir
 $publishProfilesDir = Resolve-Path $publishProfilesDir
-$CSharpSnippets = Resolve-Path $CSharpSnippets
 $vsSettingsFile = Resolve-Path $vsSettingsFile
-$sbOnPremiseSolution = Join-Path $demoWorkingDir $sbOnPremiseSolution
-$sbCloudSolution = Join-Path $demoWorkingDir $sbCloudSolution
 
 # "========= Main Script =========" #
 
@@ -76,16 +66,16 @@ Clear-VSFileMRUList
 write-host "Removing VS most recently used projects done!"
 
 #========= Removing current working directory... =========
-& ".\tasks\remove-workingdir.ps1"
+& ".\tasks\remove-workingdir.ps1" -demoWorkingDir $demoWorkingDir
 
 #========= Cleaning up Downloads Folder... =========
 & ".\tasks\cleanup-downloads-folder.ps1"
 
-#======== Removing local Windows Azure subscription settings from VS... ========
-& ".\tasks\remove-azure-vssettings.ps1"
-
 #========= Removing publishsettings from Desktop (if any)...   =========
 & ".\tasks\remove-desktop-publishsettings.ps1"
+
+#======== Removing local Windows Azure subscription settings from VS... ========
+& ".\tasks\remove-azure-vssettings.ps1"
 
 #========= Resetting Azure Compute Emulator & Dev Storage...  =========
 & ".\tasks\reset-azure-compute-emulator.ps1"
@@ -99,22 +89,13 @@ Set-VSOpenProjectDialogDefaults -Location "$demoWorkingDir" -All
 write-host "Setting VS Open Project Dialog Defaults done!"
 
 write-host "========= Copying Begin solution to working directory... ========="
-# Caching
-Copy-Item "$cachingBeginSolutionDir" "$demoWorkingDir" -recurse -Force
-# SBRelay
-Copy-Item "$sbrelayBeginSolutionDir" "$demoWorkingDir" -recurse -Force
+# MyWebSite
+Copy-Item "$myWebSiteBeginSolutionDir" "$demoWorkingDir" -recurse -Force
 write-host "Copying Begin solution to working directory done!"
-
-# ========= Installing Code Snippets ... =========
-& ".\install-code-snippets.ps1" -CSharpSnippets $CSharpSnippets
 
 write-host "========= Creating Link in Windows Explorer Favories... ========="
 Add-WindowsExplorerFavorite "CSPublishProfiles" $publishProfilesDir
 write-host "Creating Link in Windows Explorer Favories done!"
-
-write-host "========= Adding a new Package Nuget source... ========="
-Add-NugetSource "$nugetSourceName" "$nugetSourcePath" -Force
-write-host "Adding a new Package Nuget source done!"
 
 write-host "========= Launching IE ========="
 Start-IE "$windowsAzurePortal,$windowsAzureMgmtPortal"

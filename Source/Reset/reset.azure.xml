@@ -1,6 +1,14 @@
 <configuration>	
-	<!-- This setting is duplicatedin the reset.config.xml file for updating app.copfig files -->
-	<sb>
-        <connectionString>Endpoint={replace with your endpoint url};SharedSecretIssuer={replace with issuer name};SharedSecretValue={replace with secret value}</connectionString>
-	</sb>
+	<windowsAzureSubscription>
+		<publishSettingsFile></publishSettingsFile>
+		<webSitesToKeep></webSitesToKeep>
+		<Location>North Central US</Location>
+		<azureServiceName>azuredemo</azureServiceName>
+		<azureFolder>.\assets\AzurePackage\</azureFolder>
+		<azurePackageFileName>MeetAzure.Azure.cspkg</azurePackageFileName>
+		<azureConfigurationFile>ServiceConfiguration.Cloud.cscfg</azureConfigurationFile>
+	</windowsAzureSubscription>
+	<urls>
+		<publishProfileDownloadUrl>https://windows.azure.com/download/publishprofile.aspx</publishProfileDownloadUrl>
+	</urls>
 </configuration>
