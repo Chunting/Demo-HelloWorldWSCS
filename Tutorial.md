@@ -9,7 +9,7 @@ Windows Azure Web Sites let you build highly scalable web sites on Windows Azure
 
 With Windows Azure Cloud Services you can quickly deploy and manage powerful applications and services. Simply upload your application and Windows Azure handles the deployment details - from provisioning and load balancing to health monitoring for continuous availability.
 
-In this demo you will see how to deploy an MVC 4 web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012 RC, an then how you can deploy the same application to a Windows Azure Cloud Service by using the Windows Azure SDK for .NET in Visual Studio 2012 RC.
+In this demo you will see how to deploy an MVC 4 web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012 RC, and then how you can deploy the same application to a Windows Azure Cloud Service by using the Windows Azure SDK for .NET in Visual Studio 2012 RC.
 
 <a name="technologies" />
 ### Key Technologies ###
