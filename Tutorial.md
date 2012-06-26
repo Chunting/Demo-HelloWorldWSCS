@@ -66,7 +66,7 @@ Now I will show you how to create a new Web Site using the Windows Azure Managem
 
 	_The new site's default page_
 
-1. In Windows Azure Management Portal go to **Web Sites** and click the nameof the web site you just created.
+1. In Windows Azure Management Portal go to **Web Sites** and click the name of the web site you just created.
 
 	> **Speaking Point:** Now I will get back to Windows Azure and go to the site's Dashboard in order to download the Publish Profile. We will use this to deploy applications to our Web Site.
 
@@ -88,7 +88,7 @@ Now I will show you how to create a new Web Site using the Windows Azure Managem
 
 	_Creating new MVC 4 application_
 
-1. In the **New ASP.NET MVC 4** project dialog, select **Internet Application" and then click **Ok**.
+1. In the **New ASP.NET MVC 4** project dialog, select **Internet Application** and then click **Ok**.
 
 	![Selecting the Internet Application template](images/selecting-the-internet-application-template.png?raw=true "Selecting the Internet Application template")
 
@@ -96,7 +96,7 @@ Now I will show you how to create a new Web Site using the Windows Azure Managem
 
 1. Make sure the target framework of the project is 4.0. Right click the project's name and select **Publish**.
 
-1. In the "Publish Web" dialog, click the **Import** button and select the publish profile file you donwloaded from Management Portal. The necessary publish data will be completed.
+1. In the "Publish Web" dialog, click the **Import** button and select the publish profile file you donwloaded from Management Portal. The necessary publish data will be completed. Click **Publish** to start the publishing process.
 
 	> **Speaking Point:** Now we will publish the MVC4 site to our Web Site to see it running in the cloud.
 
@@ -118,11 +118,6 @@ Now I will show you how to create a new Web Site using the Windows Azure Managem
 
 	_Setting up git publishing_
 
-1. Once the process is finished, run the indicated commands to initialize the repository.
-
-	> **Speaking Point:** Now let's update our application 
-
-
 1. Go back to Visual Studio and open the **HomeController.cs" file under the **Controllers** folder.
 
 1. Update the index method as shown below
@@ -131,13 +126,13 @@ Now I will show you how to create a new Web Site using the Windows Azure Managem
 	````C#
 public ActionResult Index()
 {
-	ViewBag.Message = "Hello World";
+		ViewBag.Message = "Hello World";
 
-	Return View();
+		Return View();
 }
 ````
 
-1. Save the **HomeController.cs" file and buid the solution by hitting **F6**
+1. Save the **HomeController.cs** file and buid the solution by hitting **F6**
 
 1. If not already installed, download and install [Git](http://go.microsoft.com/fwlink/?LinkID=251797&clcid=0x409)
 
@@ -147,7 +142,7 @@ public ActionResult Index()
 git init 
 git add . 
 git commit -m "initial commit"
-git remote add azure https://User01@newazurewebsite.scm.azurewebsites.net/newazurewebsite.git 
+git remote add azure [YOUR SERVER GIT REMOTE ADDRESS] 
 git push azure master
 ````
 
@@ -208,7 +203,7 @@ git push azure master
 
 1. Hit **F5** to run the application.
 
-1. Right click the **NewAzureWebsite.Azure** project and select **Publish**
+1. Right click the Cloud Service project and select **Publish**
 
 1. You may need to download the **Publish Settings** file. To do so, click the **Sing in to download credentials** link and sing in using your credentials. Once you are signed in donwload the Publish Settings file.
 
@@ -238,7 +233,7 @@ git push azure master
 
 	_The site running in the cloud_
 
-1. In Windows Azure portal, go to the storage account's dashboard. Then go to **Configure** tab and show the audience the monitoring options.
+1. In Windows Azure portal, go to the cloud service's dashboard. Then go to **Configure** tab and show the audience the monitoring options.
 	
 	![Storage Account monitoring options](images/storage-account-monitoring-options.png?raw=true "Storage Account monitoring options")
 
@@ -247,5 +242,7 @@ git push azure master
 1. Now go to the **Scale** tab and show how the role instances can be updated.
 
 	![Cloud Service scale options](images/cloud-service-scale-options.png?raw=true "Cloud Service scale options")
+
+	_Cloud Service scale options_
 
 	
