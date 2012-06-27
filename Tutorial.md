@@ -16,13 +16,11 @@ In this demo you will see how to deploy an MVC 4 web application to a Windows Az
 
 - Windows Azure subscription - you can sign up for free trial [here][1]
 - [Microsoft Visual Studio 2012 RC][2]
-- [Windows Azure SDK for .NET - June 2012][3]
-- [NuGet Package Manager][4]
+- [Git][3]
 
 [1]: http://bit.ly/WindowsAzureFreeTrial
 [2]: http://www.microsoft.com/visualstudio/11/en-us
-[3]:http://www.microsoft.com/en-us/download/details.aspx?id=29988
-[4]: http://nuget.org/
+[3]: http://go.microsoft.com/fwlink/?LinkID=251797&clcid=0x409
 
 <a name="setup" />
 ### Setup and Configuration ###
@@ -46,7 +44,8 @@ In order to execute this demo you need to set up your environment.
 1. In Windows Azure Management Portal, click **New** in the bottom menu, select **Web Site** and then **Quick Create**.
 
 	> 	**Speaking Point:** 
-Now I will show you how to create a new Web Site using the Windows Azure Management Portal. You will see how fast the site gets created.
+	>
+	Now I will show you how to create a new Web Site using the Windows Azure Management Portal. You will see how fast the site gets created.
 
 1. Enter the url for the new site and click **Create Web Site**.
 
@@ -56,7 +55,9 @@ Now I will show you how to create a new Web Site using the Windows Azure Managem
 
 1. Once the site is provisioned, click on its url to navigate to the default page.
 
-	> **Speaking point:** As you can see it takes just a few seconds to create the new Web Site. I will now navigate to the site's default page to show that it is totally operative.
+	> **Speaking point:** 
+	>
+	As you can see it takes just a few seconds to create the new Web Site. I will now navigate to the site's default page to show that it is totally operative.
 
 	![The provisoned site](images/the-provisoned-site.png?raw=true "The provisoned site")
 
@@ -68,7 +69,9 @@ Now I will show you how to create a new Web Site using the Windows Azure Managem
 
 1. In Windows Azure Management Portal go to **Web Sites** and click the name of the web site you just created.
 
-	> **Speaking Point:** Now I will get back to Windows Azure and go to the site's Dashboard in order to download the Publish Profile. We will use this to deploy applications to our Web Site.
+	> **Speaking Point:** 
+	>
+	Now I will get back to Windows Azure and go to the site's Dashboard in order to download the Publish Profile. We will use this to deploy applications to our Web Site.
 
 1. Once in the **Dashboard** page, click the **Download publis profile** link and then click "Save" in the dialog that appears
 
@@ -78,7 +81,9 @@ Now I will show you how to create a new Web Site using the Windows Azure Managem
 
 1. In Windows 8 start menu search for **Visual Studio 2012** and execute it elevated by right clicking the Visual Studio Icon and selecting **Run as administrator**.
 
-	> **Speaking Point:** Now I'll go to Visual Studio and create a new MVC 4 internet application and deploy it to our web site. I will use web deploy to deploy the site. You will see how fast it deploys.
+	> **Speaking Point:** 
+	>
+	Now I'll go to Visual Studio and create a new MVC 4 internet application and deploy it to our web site. I will use web deploy to deploy the site. You will see how fast it deploys.
 
 1. In Visual Studio, select **File | New | Project** from the main menu.
 
@@ -98,7 +103,9 @@ Now I will show you how to create a new Web Site using the Windows Azure Managem
 
 1. In the "Publish Web" dialog, click the **Import** button and select the publish profile file you donwloaded from Management Portal. The necessary publish data will be completed. Click **Publish** to start the publishing process.
 
-	> **Speaking Point:** Now we will publish the MVC4 site to our Web Site to see it running in the cloud.
+	> **Speaking Point:** 
+	>
+	Now we will publish the MVC4 site to our Web Site to see it running in the cloud.
 
 	![Publishing the website](images/publishing-the-website.png?raw=true "Publishing the website")
 
@@ -112,7 +119,9 @@ Now I will show you how to create a new Web Site using the Windows Azure Managem
 
 1. Go Back to Windows Azure Management Portal. In the web site's dashboard, click **Set up Git publishing**.
 
-	> **Speaking point:** Now we will enable GitHub publishing and will see how we can publish new updates using git.
+	> **Speaking point:** 
+	>
+	Now we will enable GitHub publishing and will see how we can publish new updates using git.
 
 	![Setting up git publishing](images/setting-up-git-publishing.png?raw=true "Setting up git publishing")
 
@@ -164,9 +173,13 @@ git push azure master
 
 	_Web Site scaling options_
 
-	> **Speaking point:** Here we can manage the scaling options of our web site, such as  the Web Site mode wich could be Shared or Reserved .In Shared mode, all web sites share the servers and are created in the same geographical-region; In Reserved mode implies that all web sites in a given region run on dedicated virtual machines. Reserved mode provides your sites more processing power and performance and allows you to scale your instance count and size. Also we can change the Shared Instance count, denotes the number of processes dedicated to a web site. By changing this setting, you can scale out your web site for increased throughput and availability. Similarly, we can adjust the Instance size and Instance count for reserved mode.
+	> **Speaking point:** 
+	>
+	Here we can manage the scaling options of our web site, such as  the Web Site mode wich could be Shared or Reserved .In Shared mode, all web sites share the servers and are created in the same geographical-region; In Reserved mode implies that all web sites in a given region run on dedicated virtual machines. Reserved mode provides your sites more processing power and performance and allows you to scale your instance count and size. Also we can change the Shared Instance count, denotes the number of processes dedicated to a web site. By changing this setting, you can scale out your web site for increased throughput and availability. Similarly, we can adjust the Instance size and Instance count for reserved mode.
 
-> **Speaking Point:** Now we will see how we can publish our Web Site as a **Cloud Service** in **Windows Azure**
+	> **Speaking Point:** 
+	>
+	Now we will see how we can publish our Web Site as a **Cloud Service** in **Windows Azure**
 
 1. Go back to Visual Studio. In Solution Explorer right click the **NewAzureWebSite** project and select 
 **Add Windows Azure Cloud Service Project**.
