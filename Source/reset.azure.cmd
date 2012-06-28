@@ -23,7 +23,7 @@ echo.
 
 cls
 
-call %powerShellDir%\powershell.exe -Command "&'.\Setup\tasks\show-consent-message.ps1' -CleanupLocal"; exit $LASTEXITCODE
+call %powerShellDir%\powershell.exe -Command "&'.\Setup\tasks\show-consent-message.ps1' -ResetAzure"; exit $LASTEXITCODE
 
 IF %ERRORLEVEL% == 1 GOTO exit
 
