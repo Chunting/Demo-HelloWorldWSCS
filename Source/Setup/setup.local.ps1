@@ -21,3 +21,7 @@ if (!(Test-Path "$workingDir"))
 	New-Item "$workingDir" -type directory | Out-Null
 }
 write-host "Creating working directory done!"
+
+write-host "========= Install Node Package ... ========="
+& "npm install azure -g"
+write-host "========= Installing Node Package done! ... ========="
