@@ -23,6 +23,12 @@
 			name="Windows Azure SDK for .NET"
 			helpLink=""
 			disableSkip="false"
+			type="WebPI" />	
+			
+		<dependency
+			hint="azurenodesdk"
+			name="Windows Azure SDK for Node.js"
+			helpLink=""
 			type="WebPI" />			
 	</dependencies>
 	  <setupCommands>
