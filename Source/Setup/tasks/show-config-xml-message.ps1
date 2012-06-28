@@ -1,7 +1,7 @@
 param([string]$configFilename)
 
 $title = ""
-$message = "Make sure to complete the $configFilename file. Then, press Y to continue or press N to exit."
+$message = "Make sure you configure the $configFilename file before you continue. Then, press Y to continue or press N to exit."
 
 $yes = New-Object System.Management.Automation.Host.ChoiceDescription "&Yes"
 $no = New-Object System.Management.Automation.Host.ChoiceDescription "&No"

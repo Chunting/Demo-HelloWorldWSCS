@@ -29,7 +29,7 @@ IF %ERRORLEVEL% == 1 GOTO exit
 
 cls
 
-call %powerShellDir%\powershell.exe -Command "&'.\Setup\tasks\show-config-xml-message.ps1' Config.Local.xml"; exit $LASTEXITCODE
+call %powerShellDir%\powershell.exe -Command "&'.\Setup\tasks\show-config-xml-message.ps1' Config.Azure.xml"; exit $LASTEXITCODE
 
 IF %ERRORLEVEL% == 1 GOTO exit
 
