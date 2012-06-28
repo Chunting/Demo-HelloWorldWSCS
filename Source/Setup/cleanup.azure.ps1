@@ -21,7 +21,7 @@ if($configFile -eq $nul -or $configFile -eq "")
 # Get the key and account setting from configuration using namespace
 [xml]$xml = Get-Content $configFile
 [string] $wazPublishSettings = $xml.configuration.windowsAzureSubscription.publishSettingsFile
-[string] $webSitesToKeep = $xml.configuration.windowsAzureSubscription.webSitesToKeep
+[string] $webSitesToDelete = $xml.configuration.windowsAzureSubscription.webSitesToDelete
 [string] $publishProfileDownloadUrl = $xml.configuration.urls.publishProfileDownloadUrl
 
 # "========= Main Script =========" #
@@ -36,6 +36,9 @@ if (-not ($wazPublishSettings) -or -not (test-path $wazPublishSettings)) {
 #========= Importing the Windows Azure Subscription Settings File... =========
 & ".\tasks\import-waz-publishsettings.ps1" -wazPublishSettings $wazPublishSettings
 
-#========= Deleting all Windows Azure Web Sites... =========
-& ".\tasks\waz-delete-websites.ps1" -webSitesToKeep $webSitesToKeep
+#========= Deleting Configured Windows Azure Web Sites... =========
+& ".\tasks\waz-delete-websites.ps1" -webSitesToDelete $webSitesToDelete
+
+#========= Deleting Configured Cloud Service... =========
+& ".\tasks\waz-delete-cloud-service.ps1" -azureServiceNameToDelete $azureServiceNameToDelete
 
