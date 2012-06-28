@@ -10,7 +10,7 @@ namespace MyWebSite.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to kick-start your ASP.NET MVC application.";
+            ViewBag.Message = "Hello World";
 
             return View();
         }
