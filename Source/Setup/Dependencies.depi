@@ -25,6 +25,8 @@
 			disableSkip="false"
 			type="WebPI" />			
 	</dependencies>
-  <setupCommands>
+	  <setupCommands>
+      <setup command=".\DoSetup.cmd" name="HelloWorld"
+	description="HelloWorld demo setup..." />
   </setupCommands>
 </DependencyCheckerConfiguration>

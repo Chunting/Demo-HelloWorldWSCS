@@ -12,7 +12,6 @@ IF %ERRORLEVEL% NEQ 0 (
 cls
 
 REM --------- Variables ---------
-Set APPCMD="%systemroot%\system32\inetsrv\APPCMD"
 SET powerShellDir=%WINDIR%\system32\windowspowershell\v1.0
 echo.
 
@@ -20,8 +19,29 @@ echo.
 echo ========= Setting PowerShell Execution Policy ========= 
 %powerShellDir%\powershell.exe -NonInteractive -Command "Set-ExecutionPolicy unrestricted"
 echo Setting Execution Policy Done!
+echo.
 
-cls
-%powerShellDir%\powershell.exe -NonInteractive -command ".\tasks\reset.azure.ps1" ".\reset.azure.xml"
+ECHO ========= Installing Demo Toolkit =========
+CALL %powerShellDir%\powershell.exe -Command "&'.\Setup\tasks\InstallDemoToolkit.ps1'" ..\assets\DemoToolkit
+
+ECHO.
+ECHO Demo toolkit installed sucessfully...
+ECHO.
+
+ECHO ========= Installing SnapIns =========
+IF EXIST %WINDIR%\SysWow64 (
+	SET installUtilDir=%WINDIR%\Microsoft.NET\Framework64\v4.0.30319
+) ELSE (
+	SET installUtilDir=%WINDIR%\Microsoft.NET\Framework\v4.0.30319
+)
+%installUtilDir%\installutil.exe /u .\Setup\assets\DemoToolkit\DemoToolkit.Cmdlets.dll
+%installUtilDir%\installutil.exe -i .\Setup\assets\DemoToolkit\DemoToolkit.Cmdlets.dll
+ECHO Installing SnapIns Done!
+
+
+%powerShellDir%\powershell.exe -NonInteractive -command ".\Setup\cleanup.azure.ps1" "..\Config.Azure.xml"
+%powerShellDir%\powershell.exe -NonInteractive -command ".\Setup\setup.azure.ps1" "..\Config.Azure.xml" 
+
+echo.
 
 @pause
