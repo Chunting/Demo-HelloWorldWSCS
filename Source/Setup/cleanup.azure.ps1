@@ -40,5 +40,5 @@ if (-not ($wazPublishSettings) -or -not (test-path $wazPublishSettings)) {
 & ".\tasks\waz-delete-websites.ps1" -webSitesToDelete $webSitesToDelete
 
 #========= Deleting Configured Cloud Service... =========
-& ".\tasks\waz-delete-cloud-service.ps1" -azureServiceNameToDelete $azureServiceNameToDelete
+& ".\tasks\waz-delete-cloud-service.ps1" -wazPublishSettings $wazPublishSettings -azureServiceNameToDelete $azureServiceNameToDelete
 
