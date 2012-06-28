@@ -16,8 +16,8 @@ if($configFile -eq $nul -or $configFile -eq "")
 
 # "========= Main Script =========" #
 write-host "========= Create working directory... ========="
-if (!(Test-Path "$workingDir"))
+if (!(Test-Path "$demoWorkingDir"))
 {
-	New-Item "$workingDir" -type directory | Out-Null
+	New-Item "$demoWorkingDir" -type directory | Out-Null
 }
 write-host "Creating working directory done!"
