@@ -17,7 +17,7 @@
     <resetAzureComputeEmulator>true</resetAzureComputeEmulator>
     <setVSNewProjectDialogDefaults>true</setVSNewProjectDialogDefaults>
     <setVSOpenProjectDialogDefaults>true</setVSOpenProjectDialogDefaults>
-    <setNuGetRestoreOnBuild>true</setNuGetRestoreOnBuild>
+    <setNuGetRestoreOnBuild>false</setNuGetRestoreOnBuild>
     <startVS>true</startVS>
     <startIE>true</startIE>
 	<ieOpenTabUrls>https://www.windowsazure.com/,https://manage.windowsazure.com/</ieOpenTabUrls>

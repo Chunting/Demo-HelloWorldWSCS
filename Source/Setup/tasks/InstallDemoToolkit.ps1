@@ -69,6 +69,17 @@ if(-NOT (Test-Path ($demoToolkitAssemblyPath )))
 
 	if(-NOT (Test-Path $filePath))
 	{
+		$title = ""
+		$message = "This script requires to download the Demo Toolkit. Do you want to proceed?"
+		$yes = New-Object System.Management.Automation.Host.ChoiceDescription "&Yes"
+		$no = New-Object System.Management.Automation.Host.ChoiceDescription "&No"
+		$options = [System.Management.Automation.Host.ChoiceDescription[]]($yes, $no)
+		$confirmation = $host.ui.PromptForChoice($title, $message, $options, 1)
+
+		if ($confirmation -eq 1) {
+			exit 1
+		}
+
 		Write-host "Downloading..."
 		
 		# Download demo-toolkit.zip File
