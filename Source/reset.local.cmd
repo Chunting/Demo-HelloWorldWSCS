@@ -23,7 +23,7 @@ echo.
 
 cls
 
-call %powerShellDir%\powershell.exe -Command "&'.\Setup\tasks\show-consent-message.ps1' -CleanupLocal"; exit $LASTEXITCODE
+call %powerShellDir%\powershell.exe -Command "&'.\Setup\tasks\show-consent-message.ps1' -ResetLocal "; exit $LASTEXITCODE
 
 IF %ERRORLEVEL% == 1 GOTO exit
 
@@ -36,7 +36,9 @@ IF %ERRORLEVEL% == 1 GOTO exit
 cls
 
 ECHO ========= Installing Demo Toolkit =========
-CALL %powerShellDir%\powershell.exe -Command "&'.\Setup\tasks\InstallDemoToolkit.ps1'" ..\assets\DemoToolkit
+CALL %powerShellDir%\powershell.exe -Command "&'.\Setup\tasks\InstallDemoToolkit.ps1'" ..\assets\DemoToolkit; exit $LASTEXITCODE
+
+IF %ERRORLEVEL% == 1 GOTO exit
 
 ECHO.
 ECHO Demo toolkit installed sucessfully...
@@ -53,10 +55,12 @@ IF EXIST %WINDIR%\SysWow64 (
 ECHO Installing SnapIns Done!
 
 
-%powerShellDir%\powershell.exe -NonInteractive -command ".\Setup\reset.environment.ps1" "setup.xml"
+%powerShellDir%\powershell.exe -NonInteractive -command ".\Setup\reset.environment.ps1" "setup.xml" "..\Config.Local.xml"
 %powerShellDir%\powershell.exe -NonInteractive -command ".\Setup\cleanup.local.ps1" "..\Config.Local.xml"
 %powerShellDir%\powershell.exe -NonInteractive -command ".\Setup\setup.local.ps1" "..\Config.Local.xml"
 
 echo.
 
 @pause
+
+:exit

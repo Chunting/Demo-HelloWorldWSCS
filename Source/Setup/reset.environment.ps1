@@ -1,4 +1,4 @@
-Param([string] $demoSettingsFile)
+Param([string] $demoSettingsFile, [string] $userSettingsFile)
 
 $scriptDir = (split-path $myinvocation.mycommand.path -parent)
 Set-Location $scriptDir
@@ -13,15 +13,25 @@ if ((Get-PSSnapin | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
 } 
 
 # "========= Initialization =========" #
+
+# Get settings from user configuration file
+if($userSettingsFile -eq $nul -or $userSettingsFile -eq "")
+{
+	$userSettingsFile = "..\Config.Local.xml"
+}
+
+[xml]$xmlUserSettings = Get-Content $userSettingsFile
+
+[string] $workingDir = $xmlUserSettings.configuration.localPaths.workingDir
+
+# Get settings from internal configuration file
 if($demoSettingsFile -eq $null -or $demoSettingsFile -eq "")
 {
 	$demoSettingsFile = "setup.xml"
 }
 
-# Get the key and account setting from configuration using namespace
 [xml]$xmlDemoSettings = Get-Content $demoSettingsFile
 
-[string] $workingDir = $xmlDemoSettings.configuration.localPaths.workingDir
 [string] $vsSettingsFile = $xmlDemoSettings.configuration.localPaths.vsSettingsFile
 
 [string] $closeIE = $xmlDemoSettings.configuration.resetEnvironment.closeIE
@@ -39,6 +49,7 @@ if($demoSettingsFile -eq $null -or $demoSettingsFile -eq "")
 [string] $setVSNewProjectDialogDefaults = $xmlDemoSettings.configuration.resetEnvironment.setVSNewProjectDialogDefaults
 [string] $setVSOpenProjectDialogDefaults = $xmlDemoSettings.configuration.resetEnvironment.setVSOpenProjectDialogDefaults
 [string] $setNuGetRestoreOnBuild = $xmlDemoSettings.configuration.resetEnvironment.setNuGetRestoreOnBuild
+[string] $emptyRecycleBin = $xmlDemoSettings.configuration.resetEnvironment.emptyRecycleBin
 [string] $startVS = $xmlDemoSettings.configuration.resetEnvironment.startVS
 [string] $startIE = $xmlDemoSettings.configuration.resetEnvironment.startIE
 [string] $ieOpenTabUrls = $xmlDemoSettings.configuration.resetEnvironment.ieOpenTabUrls
@@ -164,6 +175,12 @@ if($setNuGetRestoreOnBuild.ToLower() -eq "true")
     write-host "========= Enabling NuGet Restore on Build... ========="
     Set-NuGetRestoreOnBuild -Enable
     write-host "Enabling NuGet Restore on Build done!"
+}
+
+if($emptyRecycleBin.ToLower() -eq "true")
+{
+	# ========= Removing elements in the recycle bin ... =========
+	& ".\tasks\empty-recyclebin.ps1"
 }
 
 if($startVS.ToLower() -eq "true")

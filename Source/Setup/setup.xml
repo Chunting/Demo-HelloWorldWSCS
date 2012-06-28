@@ -18,6 +18,7 @@
     <setVSNewProjectDialogDefaults>true</setVSNewProjectDialogDefaults>
     <setVSOpenProjectDialogDefaults>true</setVSOpenProjectDialogDefaults>
     <setNuGetRestoreOnBuild>false</setNuGetRestoreOnBuild>
+    <emptyRecycleBin>false</emptyRecycleBin>
     <startVS>true</startVS>
     <startIE>true</startIE>
 	<ieOpenTabUrls>https://www.windowsazure.com/,https://manage.windowsazure.com/</ieOpenTabUrls>
