@@ -4,7 +4,7 @@ if ($SetupLocal.IsPresent) {
     Write-Warning "This script will setup your local machine by performing the following tasks:"
     Write-Host ""    
     Write-Host "1. Create the demo's working directory"
-	
+}
 
 if ($ResetLocal.IsPresent) {
     Write-Warning "This script will reset your local machine by performing the following tasks:"
