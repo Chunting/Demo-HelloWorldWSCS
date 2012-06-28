@@ -21,23 +21,19 @@ echo ========= Setting PowerShell Execution Policy =========
 echo Setting Execution Policy Done!
 echo.
 
-ECHO ========= Installing Demo Toolkit =========
-CALL %powerShellDir%\powershell.exe -Command "&'.\Setup\tasks\InstallDemoToolkit.ps1'" ..\assets\DemoToolkit
+cls
 
-ECHO.
-ECHO Demo toolkit installed sucessfully...
-ECHO.
+call %powerShellDir%\powershell.exe -Command "&'.\Setup\tasks\show-consent-message.ps1' -CleanupLocal"; exit $LASTEXITCODE
 
-ECHO ========= Installing SnapIns =========
-IF EXIST %WINDIR%\SysWow64 (
-	SET installUtilDir=%WINDIR%\Microsoft.NET\Framework64\v4.0.30319
-) ELSE (
-	SET installUtilDir=%WINDIR%\Microsoft.NET\Framework\v4.0.30319
-)
-%installUtilDir%\installutil.exe /u .\Setup\assets\DemoToolkit\DemoToolkit.Cmdlets.dll
-%installUtilDir%\installutil.exe -i .\Setup\assets\DemoToolkit\DemoToolkit.Cmdlets.dll
-ECHO Installing SnapIns Done!
+IF %ERRORLEVEL% == 1 GOTO exit
 
+cls
+
+call %powerShellDir%\powershell.exe -Command "&'.\Setup\tasks\show-config-xml-message.ps1' Config.Local.xml"; exit $LASTEXITCODE
+
+IF %ERRORLEVEL% == 1 GOTO exit
+
+cls
 
 %powerShellDir%\powershell.exe -NonInteractive -command ".\Setup\cleanup.azure.ps1" "..\Config.Azure.xml"
 %powerShellDir%\powershell.exe -NonInteractive -command ".\Setup\setup.azure.ps1" "..\Config.Azure.xml" 

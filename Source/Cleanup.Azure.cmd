@@ -21,6 +21,20 @@ echo ========= Setting PowerShell Execution Policy =========
 echo Setting Execution Policy Done!
 echo.
 
+cls
+
+call %powerShellDir%\powershell.exe -Command "&'.\Setup\tasks\show-consent-message.ps1' -CleanupLocal"; exit $LASTEXITCODE
+
+IF %ERRORLEVEL% == 1 GOTO exit
+
+cls
+
+call %powerShellDir%\powershell.exe -Command "&'.\Setup\tasks\show-config-xml-message.ps1' Config.Local.xml"; exit $LASTEXITCODE
+
+IF %ERRORLEVEL% == 1 GOTO exit
+
+cls
+
 %powerShellDir%\powershell.exe -NonInteractive -command ".\Setup\cleanup.azure.ps1" "..\Config.Azure.xml"
 
 echo.
