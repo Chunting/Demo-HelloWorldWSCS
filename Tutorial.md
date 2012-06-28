@@ -29,11 +29,9 @@ In order to execute this demo you need to set up your environment.
 
 1. Open Windows Explorer and browse to the demo's **Source** folder.
 
-1. Execute the **Setup.cmd** file with Administrator privileges to launch the setup process that will verify all the prerequisites and install the Visual Studio code snippets for this demo.
+1. Run the **Setup.Local.cmd** script as an administrator.
 
-1. If the User Account Control dialog is shown, confirm the action to proceed.
-
->**Note:** Make sure you have checked all the dependencies for this demo before proceeding.
+> **Note:** The setup script creates a new folder that can be configured in the **Config.Local.xml** file (by default, C:\Projects) and sets this folder as the default for the Visual Studio New Project dialog.
 
 <a name="Tutorial" />
 ## Tutorial ##
