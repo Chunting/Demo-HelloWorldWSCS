@@ -21,9 +21,9 @@ if($configFile -eq $nul -or $configFile -eq "")
 # Get the key and account setting from configuration using namespace
 [xml]$xml = Get-Content $configFile
 
-[string] $demoWorkingDir = $xml.configuration.localPaths.demoWorkingDir
+[string] $workingDir = $xml.configuration.localPaths.workingDir
 
 # "========= Main Script =========" #
 #========= Removing current working directory... =========
-& ".\tasks\remove-workingdir.ps1" -demoWorkingDir $demoWorkingDir
+& ".\tasks\remove-workingdir.ps1" -demoWorkingDir $workingDir
 

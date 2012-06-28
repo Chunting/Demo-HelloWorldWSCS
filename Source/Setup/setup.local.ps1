@@ -12,12 +12,12 @@ if($configFile -eq $nul -or $configFile -eq "")
 # Get the key and account setting from configuration using namespace
 [xml]$xml = Get-Content $configFile
 
-[string] $demoWorkingDir = $xml.configuration.localPaths.demoWorkingDir
+[string] $workingDir = $xml.configuration.localPaths.workingDir
 
 # "========= Main Script =========" #
 write-host "========= Create working directory... ========="
-if (!(Test-Path "$demoWorkingDir"))
+if (!(Test-Path "$workingDir"))
 {
-	New-Item "$demoWorkingDir" -type directory | Out-Null
+	New-Item "$workingDir" -type directory | Out-Null
 }
 write-host "Creating working directory done!"

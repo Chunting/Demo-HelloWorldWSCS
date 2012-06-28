@@ -1,5 +1,5 @@
 ﻿<configuration>	
 	<localPaths>
-		<demoWorkingDir>C:\AzureDemos</demoWorkingDir>
+		<workingDir>C:\AzureDemos</workingDir>
 	</localPaths>
 </configuration>
