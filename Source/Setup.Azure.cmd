@@ -11,7 +11,6 @@ IF %ERRORLEVEL% NEQ 0 (
 )
 cls
 
-
 IF EXIST %WINDIR%\SysWow64 (
 set powerShellDir=%WINDIR%\SysWow64\windowspowershell\v1.0
 ) ELSE (
@@ -19,8 +18,17 @@ set powerShellDir=%WINDIR%\system32\windowspowershell\v1.0
 )
 
 call %powerShellDir%\powershell.exe -Command Set-ExecutionPolicy unrestricted
-%powerShellDir%\powershell.exe -NonInteractive -command ".\Setup\setup.azure.ps1" "..\Config.Azure.xml" 
+
+cls
+
+call %powerShellDir%\powershell.exe -Command "&'.\Setup\tasks\show-consent-message.ps1' -SetupAzure "; exit $LASTEXITCODE
+
+IF %ERRORLEVEL% == 1 GOTO exit
+
+cls
+
+REM This demo has nothing to setup
+REM call %powerShellDir%\powershell.exe -Command Set-ExecutionPolicy unrestricted
+REM %powerShellDir%\powershell.exe -NonInteractive -command ".\Setup\setup.azure.ps1" "..\Config.Azure.xml" 
 
 :exit
-
-
