@@ -10,7 +10,7 @@ echo ========= Setting PowerShell Execution Policy =========
 %powerShellDir%\powershell.exe -NonInteractive -Command "Set-ExecutionPolicy unrestricted"
 echo Setting Execution Policy Done!
 
-%powerShellDir%\powershell.exe -NonInteractive -command "& '%~dp0\setup.local.ps1'"
+%powerShellDir%\powershell.exe -NonInteractive -command "& '%~dp0\setup.local.ps1'" "..\Config.Local.xml"
 
 @pause
 
