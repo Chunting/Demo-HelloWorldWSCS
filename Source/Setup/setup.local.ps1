@@ -23,5 +23,6 @@ if (!(Test-Path "$workingDir"))
 write-host "Creating working directory done!"
 
 write-host "========= Install Node Package ... ========="
-& npm install azure -g
+$exe = "npm"
+& $exe install azure --g
 write-host "========= Installing Node Package done! ... ========="

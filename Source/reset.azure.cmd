@@ -36,7 +36,7 @@ IF %ERRORLEVEL% == 1 GOTO exit
 cls
 
 %powerShellDir%\powershell.exe -NonInteractive -command ".\Setup\cleanup.azure.ps1" "..\Config.Azure.xml"
-%powerShellDir%\powershell.exe -NonInteractive -command ".\Setup\setup.azure.ps1" "..\Config.Azure.xml" 
+rem %powerShellDir%\powershell.exe -NonInteractive -command ".\Setup\setup.azure.ps1" "..\Config.Azure.xml" 
 
 echo.
 

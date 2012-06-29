@@ -1,5 +1,5 @@
 Param([string] $wazPublishSettings,
-	[string] $azureServiceNameToDelete)
+	[string] $azureServiceName)
 	
 $ensureDeployments = @(
 	@{
@@ -34,6 +34,11 @@ foreach ($deploy in $ensureDeployments){
 	}
 }
 write-host "========= Removed all cloud service deployments ... ========="
-Remove-AzureService -ServiceName $serviceName | out-null
+$svc = Get-AzureService -ServiceName $azureServiceName
+$svc
+if(($svc))
+{
+	Remove-AzureService -ServiceName $azureServiceName | out-null
+}
 
 write-host "========= Deleting Cloud Service done! ========= "	

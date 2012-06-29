@@ -15,7 +15,7 @@ if ((Get-PSSnapin | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
 # "========= Initialization =========" #
 if($configFile -eq $nul -or $configFile -eq "")
 {
-	$configFile = "reset.local.xml"
+	$configFile = "config.local.xml"
 }
 
 # Get the key and account setting from configuration using namespace

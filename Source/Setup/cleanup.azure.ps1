@@ -15,7 +15,7 @@ if ((Get-PSSnapin | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
 # "========= Initialization =========" #
 if($configFile -eq $nul -or $configFile -eq "")
 {
-	$configFile = "reset.azure.xml"
+	$configFile = "config.azure.xml"
 }
 
 # Get the key and account setting from configuration using namespace
@@ -23,7 +23,7 @@ if($configFile -eq $nul -or $configFile -eq "")
 [string] $wazPublishSettings = $xml.configuration.windowsAzureSubscription.publishSettingsFile
 [string] $webSitesToDelete = $xml.configuration.windowsAzureSubscription.webSitesToDelete
 [string] $publishProfileDownloadUrl = $xml.configuration.urls.publishProfileDownloadUrl
-
+[string] $azureServiceNameToDelete = $xml.configuration.windowsAzureSubscription.azureServiceNameToDelete
 # "========= Main Script =========" #
 if (-not ($wazPublishSettings) -or -not (test-path $wazPublishSettings)) {
     Write-Error "You must specify the publish setting profile. After downloading the publish settings profile from the management portal, specify the file location in the configuration file path under the publishSettingsFile element."
@@ -40,5 +40,5 @@ if (-not ($wazPublishSettings) -or -not (test-path $wazPublishSettings)) {
 & ".\tasks\waz-delete-websites.ps1" -webSitesToDelete $webSitesToDelete
 
 #========= Deleting Configured Cloud Service... =========
-& ".\tasks\waz-delete-cloud-service.ps1" -wazPublishSettings $wazPublishSettings -azureServiceNameToDelete $azureServiceNameToDelete
+& ".\tasks\waz-delete-cloud-service.ps1" -wazPublishSettings $wazPublishSettings -azureServiceName $azureServiceNameToDelete
 
