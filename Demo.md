@@ -33,8 +33,8 @@ In order to execute this demo you need to set up your environment.
 
 > **Note:** The setup script creates a new folder that can be configured in the **Config.Local.xml** file (by default, C:\Projects) and sets this folder as the default for the Visual Studio New Project dialog.
 
-<a name="Tutorial" />
-## Tutorial ##
+<a name="Demo" />
+## Demo ##
 
 <a name="segment1" />
 ### Creating a new  Web Site ###
