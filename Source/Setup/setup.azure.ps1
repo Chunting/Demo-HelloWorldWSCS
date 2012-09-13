@@ -3,15 +3,6 @@ Param([string] $configFile)
 $scriptDir = (split-path $myinvocation.mycommand.path -parent)
 Set-Location $scriptDir
 
-if ((Get-PSSnapin -Registered | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
-	Write-Host "Demo Toolkit Snapin not installed." -ForegroundColor Red
-	Write-Host "Install it from https://github.com/microsoft-dpe/demo-tools/tree/master/demo-toolkit/bin" -ForegroundColor Red
-	return;
-} 
-if ((Get-PSSnapin | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
-	Add-PSSnapin DemoToolkitSnapin	
-} 
-
 # "========= Initialization =========" #
 if($configFile -eq $nul -or $configFile -eq "")
 {
@@ -52,9 +43,6 @@ if($confirmation -eq 0) {
 
 #========= Deleting all Windows Azure Web Sites... =========
 & ".\tasks\waz-delete-websites.ps1" -webSitesToKeep $webSitesToKeep
-
-#========= Deploy Cloud Service... =========================
-& ".\tasks\waz-deploy-cloud-service.ps1" -wazPublishSettings $wazPublishSettings -azureLocation $azureLocation -MeetAzureServiceName $MeetAzureServiceName -MeetAzureFolder $MeetAzureFolder -MeetAzurePackageFileName  $MeetAzurePackageFileName -MeetAzureConfigurationFile $MeetAzureConfigurationFile -publishProfileDownloadUrl $publishProfileDownloadUrl
 
 } #### if(confirmation)
 
