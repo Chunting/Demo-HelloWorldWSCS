@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>1.7</ProductVersion>
-    <ProjectGuid>5863c0d6-142e-43f7-9a7b-4ec5d4e2623f</ProjectGuid>
+    <ProjectGuid>c158e0df-ab7f-4fc7-bb64-a5293363ef0b</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MyWebSite.Azure</RootNamespace>
@@ -39,7 +39,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BackgroundService\BackgroundService.csproj">
       <Name>BackgroundService</Name>
-      <Project>{6ad33bbe-5245-4dcf-ad56-b53b623e0736}</Project>
+      <Project>{4d4a8a53-7a0a-48e8-9cc3-6556aef81a5d}</Project>
       <Private>True</Private>
       <RoleType>Worker</RoleType>
       <RoleName>BackgroundService</RoleName>
@@ -47,7 +47,7 @@
     </ProjectReference>
     <ProjectReference Include="..\MyWebSite\MyWebSite.csproj">
       <Name>MyWebSite</Name>
-      <Project>{092ae8a8-51f0-4792-90e4-d17efbdfa468}</Project>
+      <Project>{3ca59ce3-f5e2-4ce8-a808-abe26e6b9aa8}</Project>
       <Private>True</Private>
       <RoleType>Web</RoleType>
       <RoleName>MyWebSite</RoleName>

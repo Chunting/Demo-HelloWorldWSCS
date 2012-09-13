@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6AD33BBE-5245-4DCF-AD56-B53B623E0736}</ProjectGuid>
+    <ProjectGuid>{4D4A8A53-7A0A-48E8-9CC3-6556AEF81A5D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BackgroundService</RootNamespace>

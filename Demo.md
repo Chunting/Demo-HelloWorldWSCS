@@ -9,17 +9,16 @@ Windows Azure Web Sites let you build highly scalable web sites on Windows Azure
 
 With Windows Azure Cloud Services you can quickly deploy and manage powerful applications and services. Simply upload your application and Windows Azure handles the deployment details - from provisioning and load balancing to health monitoring for continuous availability.
 
-In this demo you will see how to deploy an MVC 4 web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012 RC, and then how you can deploy the same application to a Windows Azure Cloud Service by using the Windows Azure SDK for .NET in Visual Studio 2012 RC.
+In this demo you will see how to deploy an MVC 4 web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012, and then how you can deploy the same application to a Windows Azure Cloud Service by using the Windows Azure SDK for .NET in Visual Studio 2012.
 
 <a name="technologies" />
 ### Key Technologies ###
 
 - Windows Azure subscription - you can sign up for free trial [here][1]
-- [Microsoft Visual Studio 2012 RC][2]
+- Microsoft Visual Studio 2012
 - [Git][3]
 
 [1]: http://bit.ly/WindowsAzureFreeTrial
-[2]: http://www.microsoft.com/visualstudio/11/en-us
 [3]: http://go.microsoft.com/fwlink/?LinkID=251797&clcid=0x409
 
 <a name="setup" />
@@ -71,13 +70,13 @@ In order to execute this demo you need to set up your environment.
 	>
 	Now I will get back to Windows Azure and go to the site's Dashboard in order to download the Publish Profile. We will use this to deploy applications to our Web Site.
 
-1. Once in the **Dashboard** page, click the **Download publis profile** link and then click "Save" in the dialog that appears
+1. Once in the **Dashboard** page, click the **Download publish profile** link and then click **Save** in the dialog that appears
 
 	![Downloading publish profile](images/downloading-publish-profile.png?raw=true "Downloading publish profile")
 
 	_Downloading publish profile_
 
-1. In Windows 8 start menu search for **Visual Studio 2012** and execute it elevated by right clicking the Visual Studio Icon and selecting **Run as administrator**.
+1. In Windows 8 search in the start menu for **Visual Studio 2012** and execute it elevated by right clicking the Visual Studio Icon and selecting **Run as administrator**.
 
 	> **Speaking Point:** 
 	>
@@ -85,21 +84,21 @@ In order to execute this demo you need to set up your environment.
 
 1. In Visual Studio, select **File | New | Project** from the main menu.
 
-1. In the **New Project** dialog, select **C# | Web** under templates and then select **ASP.NET MVC 4 Web Application** in the right pane. Enter a name for the application and then click **Ok**.
+1. In the **New Project** dialog, select **C# | Web** under templates and then select **ASP.NET MVC 4 Web Application** in the right pane. Make sure the target framework of the project is 4.0. Enter a name for the application and then click **OK**.
 
 	![Creating new MVC 4 application](images/creating-new-mvc-4-application.png?raw=true "Creating new MVC 4 application")
 
 	_Creating new MVC 4 application_
 
-1. In the **New ASP.NET MVC 4** project dialog, select **Internet Application** and then click **Ok**.
+1. In the **New ASP.NET MVC 4** project dialog, select **Internet Application** and then click **OK**.
 
 	![Selecting the Internet Application template](images/selecting-the-internet-application-template.png?raw=true "Selecting the Internet Application template")
 
 	_Selecting the Internet Application template_
 
-1. Make sure the target framework of the project is 4.0. Right click the project's name and select **Publish**.
+1. Right click the project's name and select **Publish**.
 
-1. In the "Publish Web" dialog, click the **Import** button and select the publish profile file you donwloaded from Management Portal. The necessary publish data will be completed. Click **Publish** to start the publishing process.
+1. In the "Publish Web" dialog, click the **Import** button and select the publish profile file you downloaded from Management Portal. The necessary publish data will be completed. Click **Publish** to start the publishing process.
 
 	> **Speaking Point:** 
 	>
@@ -125,7 +124,7 @@ In order to execute this demo you need to set up your environment.
 
 	_Setting up git publishing_
 
-1. Go back to Visual Studio and open the **HomeController.cs" file under the **Controllers** folder.
+1. Go back to Visual Studio and open the **HomeController.cs** file under the **Controllers** folder.
 
 1. Update the index method as shown below
 
@@ -143,13 +142,13 @@ public ActionResult Index()
 
 1. If not already installed, download and install [Git](http://go.microsoft.com/fwlink/?LinkID=251797&clcid=0x409)
 
-1. Open **Git Bash** or a **Command Prompt** window (depending on your Git installation) and run the following commands.
+1. Open **Git Bash** or a **Command Prompt** window (depending on your Git installation), browse to the solution's folder and run the following commands.
 
 	````CMDPROMPT
 git init 
 git add . 
 git commit -m "initial commit"
-git remote add azure [YOUR SERVER GIT REMOTE ADDRESS] 
+git remote add azure [YOUR SERVER GIT REMOTE URL] 
 git push azure master
 ````
 
@@ -212,11 +211,11 @@ git push azure master
 
 1. Repeat the previous step for the Web Role.
 
-1. Hit **F5** to run the application.
+1. Hit **CTRL+SHIFT+S** to save all the files.
 
 1. Right click the Cloud Service project and select **Publish**
 
-1. You may need to download the **Publish Settings** file. To do so, click the **Sing in to download credentials** link and sing in using your credentials. Once you are signed in donwload the Publish Settings file.
+1. You may need to download the **Publish Settings** file. To do so, click the **Sing in to download credentials** link and sing in using your credentials. Once you are signed in download the Publish Settings file and import it by clicking **Import**.
 
 	![Downloading Publish Settings](images/downloading-publish-settings.png?raw=true "Downloading Publish Settings")
 
