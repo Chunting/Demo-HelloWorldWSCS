@@ -26,7 +26,7 @@ write-host "Importing the Windows Azure Subscription Settings File done!"
 write-host "========= Removing all cloud service deployments ... ========="
 foreach ($deploy in $ensureDeployments){
 	write-host "========= Remove Cloud Service $deploy["Slot"] deployment... ========="
-	if (Get-AzureStorageAccount $azureServiceName)
+	if (Get-AzureDeployment -ServiceName $azureServiceName -Slot $deploy["Slot"])
 	{
 		# Create Storage Service
 		Remove-AzureDeployment -ServiceName $azureServiceName -Slot $deploy["Slot"] -Force | out-null
@@ -35,7 +35,7 @@ foreach ($deploy in $ensureDeployments){
 }
 write-host "========= Removed all cloud service deployments ... ========="
 $svc = Get-AzureService -ServiceName $azureServiceName
-$svc
+
 if(($svc))
 {
 	Remove-AzureService -ServiceName $azureServiceName | out-null
