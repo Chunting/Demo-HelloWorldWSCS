@@ -6,7 +6,7 @@
 
 Demos are sets of step-by-step guides that are designed to help you learn how to use key Windows Azure services and features. Each demo provides instructions to guide you through the process of developing a complete application.
 
-In this demo you will see how to deploy an MVC 4 web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012, and then how you can deploy the same application to a Windows Azure Cloud Service by using the Windows Azure SDK for .NET in Visual Studio 2012.
+This demo demonstrates how to quickly build a simple ASP.NET MVC4 Web Application using Visual Studio 2012 and deploy the aplication to Windows Azure Web Sites. The second segment of this demo shows how to create a multi-tier Cloud Service from the MVC Web Application.
 
 > **Note:** You can download the latest build of the Windows Azure Training Kit which includes a tested version of this Demo from here: http://bit.ly/WindowsAzureTK.
 
@@ -20,7 +20,7 @@ In the **Source** folder you will find the source code of the completed demo, as
 
 ### Get Started ###
 
-In order to run the solutions provided by this demo you will first need to configure your environment and install any necessary prerequisites such as runtimes, components, or libraries. For your ease, you can download and run the dependency checker [here] (http://go.microsoft.com/fwlink/?LinkId=245702) to automatically check and install all the requirements. Please take into account that you have to copy it inside the **Source/Setup** folder of this demo and change its name to **DC.exe**. Each demo also includes setup instructions for getting started.
+In order to run the solutions provided by this demo you will first need to configure your environment and install any necessary prerequisites such as runtimes, components, or libraries. For your ease, you can download and run the dependency checker [here] (http://go.microsoft.com/fwlink/?LinkId=245702) to automatically check and install all the requirements. Please take into account that you have to copy it inside the **Source/Setup** folder of this demo. Each demo also includes setup instructions for getting started.
 
 ### Contributing to the Repository ###
 
@@ -28,4 +28,4 @@ If you find any issues or opportunities for improving this demo, fix them!  Feel
 
 ### Reporting Issues ###
 
-If you find any issues with this demo that you can't fix, feel free to report them in the [issues](https://github.com/WindowsAzure-Preview/Demo-DevCampsWebSites/issues) section of this repository.
+If you find any issues with this demo that you can't fix, feel free to report them in the [issues](https://github.com/WindowsAzure-TrainingKit/Demo-HelloWorldWSCS/issues) section of this repository.
