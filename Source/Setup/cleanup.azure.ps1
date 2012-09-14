@@ -3,15 +3,6 @@ Param([string] $configFile)
 $scriptDir = (split-path $myinvocation.mycommand.path -parent)
 Set-Location $scriptDir
 
-if ((Get-PSSnapin -Registered | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
-	Write-Host "Demo Toolkit Snapin not installed." -ForegroundColor Red
-	Write-Host "Install it from https://github.com/microsoft-dpe/demo-tools/tree/master/demo-toolkit/bin" -ForegroundColor Red
-	return;
-} 
-if ((Get-PSSnapin | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
-	Add-PSSnapin DemoToolkitSnapin	
-} 
-
 # "========= Initialization =========" #
 if($configFile -eq $nul -or $configFile -eq "")
 {
