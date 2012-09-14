@@ -11,7 +11,7 @@
 			type="Uninstall" />
     
 		<dependency
-			hint="VWDOrVs11AzurePack_RC"
+			hint="VWDOrVs11AzurePack"
 			name="Windows Azure SDK for .NET"
 			helpLink=""
 			disableSkip="false"
