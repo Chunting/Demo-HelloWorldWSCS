@@ -20,7 +20,7 @@ In the **Source** folder you will find the source code of the completed demo, as
 
 ### Get Started ###
 
-In order to run the solutions provided by this demo you will first need to configure your environment and install any necessary prerequisites such as runtimes, components, or libraries. For your ease, you can download and run the dependency checker [here] (http://go.microsoft.com/fwlink/?LinkId=245702) to automatically check and install all the requirements. Please take into account that you have to copy it inside the **Source/Setup** folder of this demo. Each demo also includes setup instructions for getting started.
+In order to run the solutions provided by this demo you will first need to configure your environment and install any necessary prerequisites such as runtimes, components, or libraries. After cloning the Demo from the repository, follow the steps in the **Setup and Configuration** section of the Demo.md document.
 
 ### Contributing to the Repository ###
 
