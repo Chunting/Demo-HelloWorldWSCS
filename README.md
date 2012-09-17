@@ -12,11 +12,15 @@ This demo demonstrates how to quickly build a simple ASP.NET MVC4 Web Applicatio
 
 ### Repository Structure ###
 
-In the **root** folder of this repository you will find the demo document, **Demo.md**. Before beginning with the demo, make sure you have followed all the required steps indicated at the setup section of the document. 
+In the **root** folder of this repository you will find the script for this demo, **Demo.md**. Before beginning with the demo, make sure you have followed all the required steps indicated in the **Setup and Configuration** section of the document.
 
-In the **Source** folder you will find the source code of the completed demo, as well as the setup scripts. Throughout the demo you will be instructed to open and explore the different solutions from the source folder. It is comprised of the following subfolder:
+In the **Source** folder, you will find all the material necessary for this demo. The demo script will give you instructions on how to use this content. Typically, it will contain the following subfolders:
 
-- **Setup:** This folder contains the dependency files and the setup scripts necessary to initialize specific configurations of the demo, being its execution is required in the majority of the demos.
+- **Setup:** This folder contains the dependency files and the setup scripts necessary to initialize specific configurations of the demo. Its execution is required for the majority of the demos.
+
+- **Code:** This folder contains the source code required to perform the demo (usually there is a ***begin*** folder, which contains the starting code that you will complete by following the steps of the demo, and an ***end*** folder, which is the final result you should obtain once the demo is completed).
+
+- **Assets:** This folder contains common content that is necessary to complete the demo.
 
 ### Get Started ###
 
