@@ -46,7 +46,7 @@ In order to execute this demo you need to set up your environment.
 
 1. Enter the url for the new site and click **Create Web Site**.
 
-	![Creating a new Web Site](images/creating-a-new-web-site.png?raw=true "Creating a new Web Site")
+	![Creating a new Web Site](Images/creating-a-new-web-site.png?raw=true "Creating a new Web Site")
 
 	_Creating a new Web Site_
 
@@ -56,11 +56,11 @@ In order to execute this demo you need to set up your environment.
 	>
 	As you can see it takes just a few seconds to create the new Web Site. I will now navigate to the site's default page to show that it is totally operative.
 
-	![The provisoned site](images/the-provisoned-site.png?raw=true "The provisoned site")
+	![The provisoned site](Images/the-provisoned-site.png?raw=true "The provisoned site")
 
 	_The provisoned site_
 
-	![The new site's default page](images/the-new-sites-default-page.png?raw=true "The new site's default page")
+	![The new site's default page](Images/the-new-sites-default-page.png?raw=true "The new site's default page")
 
 	_The new site's default page_
 
@@ -72,7 +72,7 @@ In order to execute this demo you need to set up your environment.
 
 1. Once in the **Dashboard** page, click the **Download publish profile** link and then click **Save** in the dialog that appears
 
-	![Downloading publish profile](images/downloading-publish-profile.png?raw=true "Downloading publish profile")
+	![Downloading publish profile](Images/downloading-publish-profile.png?raw=true "Downloading publish profile")
 
 	_Downloading publish profile_
 
@@ -86,13 +86,13 @@ In order to execute this demo you need to set up your environment.
 
 1. In the **New Project** dialog, select **C# | Web** under templates and then select **ASP.NET MVC 4 Web Application** in the right pane. Make sure the target framework of the project is 4.0. Enter a name for the application and then click **OK**.
 
-	![Creating new MVC 4 application](images/creating-new-mvc-4-application.png?raw=true "Creating new MVC 4 application")
+	![Creating new MVC 4 application](Images/creating-new-mvc-4-application.png?raw=true "Creating new MVC 4 application")
 
 	_Creating new MVC 4 application_
 
 1. In the **New ASP.NET MVC 4** project dialog, select **Internet Application** and then click **OK**.
 
-	![Selecting the Internet Application template](images/selecting-the-internet-application-template.png?raw=true "Selecting the Internet Application template")
+	![Selecting the Internet Application template](Images/selecting-the-internet-application-template.png?raw=true "Selecting the Internet Application template")
 
 	_Selecting the Internet Application template_
 
@@ -104,13 +104,13 @@ In order to execute this demo you need to set up your environment.
 	>
 	Now we will publish the MVC4 site to our Web Site to see it running in the cloud.
 
-	![Publishing the website](images/publishing-the-website.png?raw=true "Publishing the website")
+	![Publishing the website](Images/publishing-the-website.png?raw=true "Publishing the website")
 
 	_Publishing the website_
 
 1. Once the publish process is finished the web site page will be loaded.
 
-	![The new site loaded](images/the-new-site-loaded.png?raw=true "The new site loaded")
+	![The new site loaded](Images/the-new-site-loaded.png?raw=true "The new site loaded")
 
 	_The new site loaded_
 
@@ -120,7 +120,7 @@ In order to execute this demo you need to set up your environment.
 	>
 	Now we will enable GitHub publishing and will see how we can publish new updates using git.
 
-	![Setting up git publishing](images/setting-up-git-publishing.png?raw=true "Setting up git publishing")
+	![Setting up git publishing](Images/setting-up-git-publishing.png?raw=true "Setting up git publishing")
 
 	_Setting up git publishing_
 
@@ -154,19 +154,19 @@ git push azure master
 
 1. Go back to the web site page and hit **F5** to refresh the page. Note that the message has changed to **Hello World**.
 
-	![The updated Site](images/the-updated-site.png?raw=true "The updated Site")
+	![The updated Site](Images/the-updated-site.png?raw=true "The updated Site")
 
 	_The updated Site_
 
 1. In Windows Azure portal, go the website's dashboard and select **Scale**.
 
-	![Selecting Scale options](images/selecting-scale-options.png?raw=true "Selecting Scale options")
+	![Selecting Scale options](Images/selecting-scale-options.png?raw=true "Selecting Scale options")
 
 	_Selecting Scale options_
 
 1. Once in the **Scale** page, show the audience the scaling options.
 
-	![Web Site scaling options](images/web-site-scaling-options.png?raw=true "Web Site scaling options")
+	![Web Site scaling options](Images/web-site-scaling-options.png?raw=true "Web Site scaling options")
 
 	_Web Site scaling options_
 
@@ -181,13 +181,13 @@ git push azure master
 1. Go back to Visual Studio. In Solution Explorer right click the **NewAzureWebSite** project and select 
 **Add Windows Azure Cloud Service Project**.
 
-	![Adding a Cloud Service Project](images/adding-a-cloud-service-project.png?raw=true "Adding a Cloud Service Project")
+	![Adding a Cloud Service Project](Images/adding-a-cloud-service-project.png?raw=true "Adding a Cloud Service Project")
 
 	_Adding a Cloud Service Project_
 
 1. Hit **F5** to run the solution in **Windows Azure Emulator**.
 
-	![Running application in Windows Azure Emulator](images/running-application-in-windows-azure-emulator.png?raw=true "Running application in Windows Azure Emulator")
+	![Running application in Windows Azure Emulator](Images/running-application-in-windows-azure-emulator.png?raw=true "Running application in Windows Azure Emulator")
 
 	_Running application in Windows Azure Emulator_
 
@@ -197,7 +197,7 @@ git push azure master
 
 1. In the **Add New Role Project** dialog, select **Worker Role**, set the name to **BackgroundService** and click **Add**.
 
-	![Adding a Worker Role](images/adding-a-worker-role.png?raw=true "Adding a Worker Role")
+	![Adding a Worker Role](Images/adding-a-worker-role.png?raw=true "Adding a Worker Role")
 
 	_Adding a Worker Role_
 
@@ -205,7 +205,7 @@ git push azure master
 
 1. Select the **Configuration** tab and set the **Instance Count** to **2**.
 
-	![Increasing the Worker Role instance count](images/increasing-the-worker-role-instance-count.png?raw=true "Increasing the Worker Role instance count")
+	![Increasing the Worker Role instance count](Images/increasing-the-worker-role-instance-count.png?raw=true "Increasing the Worker Role instance count")
 
 	_Increasing the Worker Role instance count_
 
@@ -217,7 +217,7 @@ git push azure master
 
 1. You may need to download the **Publish Settings** file. To do so, click the **Sing in to download credentials** link and sing in using your credentials. Once you are signed in download the Publish Settings file and import it by clicking **Import**.
 
-	![Downloading Publish Settings](images/downloading-publish-settings.png?raw=true "Downloading Publish Settings")
+	![Downloading Publish Settings](Images/downloading-publish-settings.png?raw=true "Downloading Publish Settings")
 
 	_Downloading Publish Settings_
 
@@ -225,7 +225,7 @@ git push azure master
 
 1. Wait until the publish process finishes.
 
-	![Completed Deployment](images/completed-deployment.png?raw=true "Completed Deployment")
+	![Completed Deployment](Images/completed-deployment.png?raw=true "Completed Deployment")
 
 	_Completed Deployment_
 
@@ -233,25 +233,25 @@ git push azure master
 
 1. Once in the Dashboard page, click on the **Site URL** to load the site.
 
-	![Storage Account Dashboard](images/storage-account-dashboard.png?raw=true "Storage Account Dashboard")
+	![Storage Account Dashboard](Images/storage-account-dashboard.png?raw=true "Storage Account Dashboard")
 
 	_Storage Account Dashboard_
 
 1. Wait for the site to load. Check that the MVC site is running in Windows Azure.
 
-	![The site running in the cloud](images/the-site-running-in-the-cloud.png?raw=true "The site running in the cloud")
+	![The site running in the cloud](Images/the-site-running-in-the-cloud.png?raw=true "The site running in the cloud")
 
 	_The site running in the cloud_
 
 1. In Windows Azure portal, go to the cloud service's dashboard. Then go to **Configure** tab and show the audience the monitoring options.
 	
-	![Storage Account monitoring options](images/storage-account-monitoring-options.png?raw=true "Storage Account monitoring options")
+	![Storage Account monitoring options](Images/storage-account-monitoring-options.png?raw=true "Storage Account monitoring options")
 
 	_Cloud Service monitoring options_
 
 1. Now go to the **Scale** tab and show how the role instances can be updated.
 
-	![Cloud Service scale options](images/cloud-service-scale-options.png?raw=true "Cloud Service scale options")
+	![Cloud Service scale options](Images/cloud-service-scale-options.png?raw=true "Cloud Service scale options")
 
 	_Cloud Service scale options_
 
