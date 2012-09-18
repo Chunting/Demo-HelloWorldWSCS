@@ -5,16 +5,16 @@
 <a name="Overview" />
 ## Overview ##
 
-Windows Azure Web Sites let you build highly scalable web sites on Windows Azure. Quickly and easily deploy sites to a highly scalable cloud environment that allows you to start small and scale as traffic grows. Use the languages and apps of your choice then deploy with FTP, Git and TFS. 
+Windows Azure Web Sites let you build highly scalable Web Sites on Windows Azure. Quickly and easily deploy sites to a highly scalable cloud environment that allows you to start small and scale as traffic grows. Use the languages and apps of your choice then deploy with FTP, Git and TFS. 
 
-With Windows Azure Cloud Services you can quickly deploy and manage powerful applications and services. Simply upload your application and Windows Azure handles the deployment details - from provisioning and load balancing to health monitoring for continuous availability.
+With Windows Azure Cloud Services you can quickly deploy and manage powerful applications and services. Simply upload your application and Windows Azure handles the deployment details from provisioning and load balancing to health monitoring for continuous availability.
 
 In this demo you will see how to deploy an MVC 4 web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012, and then how you can deploy the same application to a Windows Azure Cloud Service by using the Windows Azure SDK for .NET in Visual Studio 2012.
 
 <a name="technologies" />
 ### Key Technologies ###
 
-- Windows Azure subscription - you can sign up for free trial [here][1]
+- Windows Azure subscription - you can sign up for a free trial [here][1]
 - Microsoft Visual Studio 2012
 - [Git][3]
 
@@ -30,7 +30,7 @@ In order to execute this demo you need to set up your environment.
 
 1. Run the **Setup.Local.cmd** script as an administrator.
 
-> **Note:** The setup script creates a new folder that can be configured in the **Config.Local.xml** file (by default, C:\Projects) and sets this folder as the default for the Visual Studio New Project dialog.
+> **Note:** The setup script creates a new folder that can be configured in the **Config.Local.xml** file (by default, C:\Projects) and sets this folder as the default for the Visual Studio New Project dialog box.
 
 <a name="Demo" />
 ## Demo ##
@@ -44,17 +44,17 @@ In order to execute this demo you need to set up your environment.
 	>
 	Now I will show you how to create a new Web Site using the Windows Azure Management Portal. You will see how fast the site gets created.
 
-1. Enter the url for the new site and click **Create Web Site**.
+1. Enter the URL for the new site and click **Create Web Site**.
 
 	![Creating a new Web Site](Images/creating-a-new-web-site.png?raw=true "Creating a new Web Site")
 
 	_Creating a new Web Site_
 
-1. Once the site is provisioned, click on its url to navigate to the default page.
+1. Once the site is provisioned, click on its URL to go to the default page.
 
 	> **Speaking point:** 
 	>
-	As you can see it takes just a few seconds to create the new Web Site. I will now navigate to the site's default page to show that it is totally operative.
+	As you can see it takes just a few seconds to create the new Web Site. I will now go to the site's default page to show that it is totally operative.
 
 	![The provisoned site](Images/the-provisoned-site.png?raw=true "The provisoned site")
 
@@ -64,13 +64,13 @@ In order to execute this demo you need to set up your environment.
 
 	_The new site's default page_
 
-1. In Windows Azure Management Portal go to **Web Sites** and click the name of the web site you just created.
+1. In Windows Azure Management Portal go to **Web Sites** and click the name of the Web Site you just created.
 
 	> **Speaking Point:** 
 	>
-	Now I will get back to Windows Azure and go to the site's Dashboard in order to download the Publish Profile. We will use this to deploy applications to our Web Site.
+	Now I will go back to Windows Azure and go to the site's Dashboard in order to download the Publish Profile. We will use this to deploy applications to our Web Site.
 
-1. Once in the **Dashboard** page, click the **Download publish profile** link and then click **Save** in the dialog that appears
+1. Once on the **Dashboard** page, click the **Download publish profile** link and then click **Save** in the dialog box that appears
 
 	![Downloading publish profile](Images/downloading-publish-profile.png?raw=true "Downloading publish profile")
 
@@ -80,41 +80,41 @@ In order to execute this demo you need to set up your environment.
 
 	> **Speaking Point:** 
 	>
-	Now I'll go to Visual Studio and create a new MVC 4 internet application and deploy it to our web site. I will use web deploy to deploy the site. You will see how fast it deploys.
+	Now I will go to Visual Studio and create a new MVC 4 internet application and deploy it to our Web Site. I will use web deploy to deploy the site. You will see how fast it deploys.
 
 1. In Visual Studio, select **File | New | Project** from the main menu.
 
-1. In the **New Project** dialog, select **C# | Web** under templates and then select **ASP.NET MVC 4 Web Application** in the right pane. Make sure the target framework of the project is 4.0. Enter a name for the application and then click **OK**.
+1. In the **New Project** dialog box, select **C# | Web** under templates and then select **ASP.NET MVC 4 Web Application** in the right pane. Make sure the target framework of the project is 4.0. Enter a name for the application and then click **OK**.
 
-	![Creating new MVC 4 application](Images/creating-new-mvc-4-application.png?raw=true "Creating new MVC 4 application")
+	![Creating a new MVC 4 application](Images/creating-new-mvc-4-application.png?raw=true "Creating a new MVC 4 application")
 
-	_Creating new MVC 4 application_
+	_Creating a new MVC 4 application_
 
-1. In the **New ASP.NET MVC 4** project dialog, select **Internet Application** and then click **OK**.
+1. In the **New ASP.NET MVC 4** project dialog box, select **Internet Application** and then click **OK**.
 
 	![Selecting the Internet Application template](Images/selecting-the-internet-application-template.png?raw=true "Selecting the Internet Application template")
 
 	_Selecting the Internet Application template_
 
-1. Right click the project's name and select **Publish**.
+1. Right-click the project's name and select **Publish**.
 
-1. In the "Publish Web" dialog, click the **Import** button and select the publish profile file you downloaded from Management Portal. The necessary publish data will be completed. Click **Publish** to start the publishing process.
+1. In the "Publish Web" dialog box, click the **Import** button and select the publish profile file you downloaded from Management Portal. The necessary publish data will be completed. Click **Publish** to start the publishing process.
 
 	> **Speaking Point:** 
 	>
 	Now we will publish the MVC4 site to our Web Site to see it running in the cloud.
 
-	![Publishing the website](Images/publishing-the-website.png?raw=true "Publishing the website")
+	![Publishing the Web Site](Images/publishing-the-website.png?raw=true "Publishing the Web Site")
 
-	_Publishing the website_
+	_Publishing the Web Site_
 
-1. Once the publish process is finished the web site page will be loaded.
+1. Once the publish process is finished the Web Site page will be loaded.
 
 	![The new site loaded](Images/the-new-site-loaded.png?raw=true "The new site loaded")
 
 	_The new site loaded_
 
-1. Go Back to Windows Azure Management Portal. In the web site's dashboard, click **Set up Git publishing**.
+1. Go Back to Windows Azure Management Portal. In the Web Site's dashboard, click **Set up Git publishing**.
 
 	> **Speaking point:** 
 	>
@@ -152,19 +152,19 @@ git remote add azure [YOUR SERVER GIT REMOTE URL]
 git push azure master
 ````
 
-1. Go back to the web site page and hit **F5** to refresh the page. Note that the message has changed to **Hello World**.
+1. Go back to the Web Site page and press **F5** to refresh the page. Note that the message has changed to **Hello World**.
 
 	![The updated Site](Images/the-updated-site.png?raw=true "The updated Site")
 
 	_The updated Site_
 
-1. In Windows Azure portal, go the website's dashboard and select **Scale**.
+1. In Windows Azure portal, go the Web Site's dashboard and select **Scale**.
 
 	![Selecting Scale options](Images/selecting-scale-options.png?raw=true "Selecting Scale options")
 
 	_Selecting Scale options_
 
-1. Once in the **Scale** page, show the audience the scaling options.
+1. Once on the **Scale** page, show the audience the scaling options.
 
 	![Web Site scaling options](Images/web-site-scaling-options.png?raw=true "Web Site scaling options")
 
@@ -172,20 +172,20 @@ git push azure master
 
 	> **Speaking point:** 
 	>
-	Here we can manage the scaling options of our web site, such as  the Web Site mode wich could be Shared or Reserved .In Shared mode, all web sites share the servers and are created in the same geographical-region; In Reserved mode implies that all web sites in a given region run on dedicated virtual machines. Reserved mode provides your sites more processing power and performance and allows you to scale your instance count and size. Also we can change the Shared Instance count, denotes the number of processes dedicated to a web site. By changing this setting, you can scale out your web site for increased throughput and availability. Similarly, we can adjust the Instance size and Instance count for reserved mode.
+	Here we can manage the scaling options of our Web Site, such as the Web Site mode which can be Shared or Reserved .In Shared mode, all Web Sites share the servers and are created in the same geographical-region; Reserved mode implies that all Web Sites in a given region run on dedicated virtual machines. Reserved mode provides your sites more processing power and performance and allows you to scale your instance count and size. We can also change the Shared Instance count, denoting the number of processes dedicated to a Web Site. By changing this setting, you can scale out your Web Site for increased throughput and availability. Similarly, we can adjust the Instance size and Instance count for Reserved mode.
 
 	> **Speaking Point:** 
 	>
 	Now we will see how we can publish our Web Site as a **Cloud Service** in **Windows Azure**
 
-1. Go back to Visual Studio. In Solution Explorer right click the **NewAzureWebSite** project and select 
+1. Go back to Visual Studio. In Solution Explorer right-click the **NewAzureWebSite** project and select 
 **Add Windows Azure Cloud Service Project**.
 
 	![Adding a Cloud Service Project](Images/adding-a-cloud-service-project.png?raw=true "Adding a Cloud Service Project")
 
 	_Adding a Cloud Service Project_
 
-1. Hit **F5** to run the solution in **Windows Azure Emulator**.
+1. Press **F5** to run the solution in **Windows Azure Emulator**.
 
 	![Running application in Windows Azure Emulator](Images/running-application-in-windows-azure-emulator.png?raw=true "Running application in Windows Azure Emulator")
 
@@ -193,15 +193,15 @@ git push azure master
 
 1. Close the browser.
 
-1. In Solution Explorer, right click **Roles** and select **Add | New Worker Role Project**.
+1. In Solution Explorer, right-click **Roles** and select **Add | New Worker Role Project**.
 
-1. In the **Add New Role Project** dialog, select **Worker Role**, set the name to **BackgroundService** and click **Add**.
+1. In the **Add New Role Project** dialog box, select **Worker Role**, set the name to **BackgroundService** and click **Add**.
 
 	![Adding a Worker Role](Images/adding-a-worker-role.png?raw=true "Adding a Worker Role")
 
 	_Adding a Worker Role_
 
-1. Right click the **BackgroundService** worker role and select **Properties**
+1. Right-click the **BackgroundService** worker role and select **Properties**
 
 1. Select the **Configuration** tab and set the **Instance Count** to **2**.
 
@@ -211,11 +211,11 @@ git push azure master
 
 1. Repeat the previous step for the Web Role.
 
-1. Hit **CTRL+SHIFT+S** to save all the files.
+1. Press **CTRL+SHIFT+S** to save all the files.
 
-1. Right click the Cloud Service project and select **Publish**
+1. Right-click the Cloud Service project and select **Publish**
 
-1. You may need to download the **Publish Settings** file. To do so, click the **Sing in to download credentials** link and sing in using your credentials. Once you are signed in download the Publish Settings file and import it by clicking **Import**.
+1. You may need to download the **Publish Settings** file. To do so, click the **Sign in to download credentials** link and sing in using your credentials. Once you are signed in download the Publish Settings file and import it by clicking **Import**.
 
 	![Downloading Publish Settings](Images/downloading-publish-settings.png?raw=true "Downloading Publish Settings")
 
@@ -231,7 +231,7 @@ git push azure master
 
 1. In Windows Azure portal, go to **Cloud Services** and click the name of the cloud service where you deployed the MVC4 site.
 
-1. Once in the Dashboard page, click on the **Site URL** to load the site.
+1. Once on the Dashboard page, click the **Site URL** to load the site.
 
 	![Storage Account Dashboard](Images/storage-account-dashboard.png?raw=true "Storage Account Dashboard")
 
@@ -243,7 +243,7 @@ git push azure master
 
 	_The site running in the cloud_
 
-1. In Windows Azure portal, go to the cloud service's dashboard. Then go to **Configure** tab and show the audience the monitoring options.
+1. In Windows Azure portal, go to the cloud service's dashboard. Then go to the **Configure** tab and show the audience the monitoring options.
 	
 	![Storage Account monitoring options](Images/storage-account-monitoring-options.png?raw=true "Storage Account monitoring options")
 
