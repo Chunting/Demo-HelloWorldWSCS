@@ -138,11 +138,11 @@ public ActionResult Index()
 }
 ````
 
-1. Save the **HomeController.cs** file and buid the solution by hitting **F6**
+1. Save the **HomeController.cs** file and buid the solution by hitting **CTRL+SHIFT+B**.
 
 1. If not already installed, download and install [Git](http://go.microsoft.com/fwlink/?LinkID=251797&clcid=0x409)
 
-1. Open **Git Bash** or a **Command Prompt** window (depending on your Git installation), browse to the solution's folder and run the following commands.
+1. Open **Git Bash** or a **Command Prompt** window (depending on your Git installation), browse to the solution's folder and run the following commands. Replace the placeholder with the GIT URL provided in the Azure Management Portal page.
 
 	````CMDPROMPT
 git init 
@@ -221,13 +221,15 @@ git push azure master
 
 	_Downloading Publish Settings_
 
-1. Click the **Publish** button to start the publish process.
+1. Click the **Next** button and complete the publish settings. Finally, click **Publish** to start the publish process.
 
 1. Wait until the publish process finishes.
 
 	![Completed Deployment](Images/completed-deployment.png?raw=true "Completed Deployment")
 
 	_Completed Deployment_
+
+    >**Note:** The connection string used in this MVC application points to a local database to store the membership information. This connection string will not work when you run this application in Windows Azure. To access a different database, you should update the connection string in the web.config file.
 
 1. In Windows Azure portal, go to **Cloud Services** and click the name of the cloud service where you deployed the MVC4 site.
 
