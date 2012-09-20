@@ -1,8 +1,9 @@
 param([switch]$ResetAzure,[switch]$ResetLocal,[switch]$SetupAzure,[switch]$SetupLocal,[switch]$CleanupLocal,[switch]$CleanupAzure)
 
 if ($SetupLocal.IsPresent) {
-    Write-Host "This demo does not require any setup step in your local machine" -ForegroundColor Green
-    Write-Host ""
+    Write-Warning "This script will setup your machine by performing the following tasks:"
+    Write-Host ""    
+	Write-Host "1. Install Windows Azure SDK for Node.js"
 }
 
 if ($ResetLocal.IsPresent) {
