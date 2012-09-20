@@ -134,7 +134,7 @@ public ActionResult Index()
 {
 		ViewBag.Message = "Hello World";
 
-		Return View();
+		return View();
 }
 ````
 
