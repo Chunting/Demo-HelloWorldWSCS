@@ -1,9 +1,28 @@
 param([switch]$ResetAzure,[switch]$ResetLocal,[switch]$SetupAzure,[switch]$SetupLocal,[switch]$CleanupLocal,[switch]$CleanupAzure)
 
 if ($SetupLocal.IsPresent) {
-    Write-Warning "This script will setup your machine by performing the following tasks:"
-    Write-Host ""    
-    Write-Host "1. Create the demo's working directory"
+    Write-Host "This demo does not require any setup step in your local machine" -ForegroundColor Green
+    Write-Host ""
+}
+
+if ($ResetLocal.IsPresent) {
+    Write-Host "This demo does not require any reset step in your local machine" -ForegroundColor Green
+    Write-Host ""
+}
+
+if ($CleanupLocal.IsPresent) {
+    Write-Host "This demo does not require any cleanup step in your local machine" -ForegroundColor Green
+    Write-Host ""
+}
+
+if ($SetupAzure.IsPresent) {
+    Write-Host "This demo does not require any setup step in Windows Azure" -ForegroundColor Green
+    Write-Host ""
+}
+
+if ($ResetAzure.IsPresent) {
+    Write-Host "This demo does not require any cleanup step in Windows Azure" -ForegroundColor Green
+    Write-Host ""
 }
 
 if ($CleanupAzure.IsPresent) {

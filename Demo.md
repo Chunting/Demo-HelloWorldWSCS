@@ -30,7 +30,7 @@ In order to execute this demo you need to set up your environment.
 
 1. Run the **Setup.Local.cmd** script as an administrator.
 
-> **Note:** The setup script creates a new folder that can be configured in the **Config.Local.xml** file (by default, C:\Projects) and sets this folder as the default for the Visual Studio New Project dialog box.
+>**Note:** Make sure you have all the dependencies for this demo checked before proceeding.
 
 <a name="Demo" />
 ## Demo ##
