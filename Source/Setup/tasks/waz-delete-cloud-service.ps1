@@ -1,4 +1,5 @@
-Param([string] $wazPublishSettings,
+Param([string] $azureNodeSDKDir,
+	[string] $wazPublishSettings,
 	[string] $azureServiceName)
 	
 $ensureDeployments = @(
@@ -15,12 +16,11 @@ write-host "========= Delete Cloud Service...  ========= "
 
 write-host "========= Importing the Windows Azure Management Module... ========="
 # Ensure that we are loading the Azure module from the correct folder
-Remove-Module Microsoft.WindowsAzure.ManagementTools.PowerShell.ServiceManagement -ErrorAction SilentlyContinue
-Import-Module .\assets\WindowsAzureCmdLets\Microsoft.WindowsAzure.ManagementTools.PowerShell.ServiceManagement
+Import-Module "${env:ProgramFiles(x86)}\Microsoft SDKs\Windows Azure\PowerShell\Azure\Azure.psd1"
 
 write-host "========= Importing the Windows Azure Subscription Settings File... ========="
 $wazPublishSettings = Resolve-Path $wazPublishSettings
-Import-AzureSubscription $wazPublishSettings
+Import-AzurePublishSettingsFile $wazPublishSettings
 write-host "Importing the Windows Azure Subscription Settings File done!"
 
 write-host "========= Removing all cloud service deployments ... ========="
@@ -34,11 +34,13 @@ foreach ($deploy in $ensureDeployments){
 	}
 }
 write-host "========= Removed all cloud service deployments ... ========="
-$svc = Get-AzureService -ServiceName $azureServiceName
+if($azureNodeSDKDir) {
+	$azureCmd = (Join-Path $azureNodeSDKDir "node.exe") + " " + (Join-Path $azureNodeSDKDir "bin\azure")
+	}
+else {
+	$azureCmd = "azure"
+	}
 
-if(($svc))
-{
-	Remove-AzureService -ServiceName $azureServiceName | out-null
-}
+Invoke-Expression ("$azureCmd service delete " + $azureServiceName)
 
-write-host "========= Deleting Cloud Service done! ========= "	
+write-host "========= Deleting Cloud Service done! ========= "
