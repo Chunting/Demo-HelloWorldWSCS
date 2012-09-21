@@ -24,7 +24,8 @@ function DownloadFile([string] $filePath)
     
     try 
     {       
-        $webclient.DownloadFile($url, $filePath)                 
+        write-host "Downloading Dependency Checker. This may take a while if you have a slow Internet connection."
+		$webclient.DownloadFile($url, $filePath)                 
     }        
     catch [System.Net.WebException]
     {
@@ -64,4 +65,3 @@ write-host "Running Dependency Checker..."
 cd ..
 & ".\DC.exe"
 
-write-host "Wait until the Dependency Checker dialog appears."
