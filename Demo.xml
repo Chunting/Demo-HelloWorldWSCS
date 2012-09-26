@@ -14,7 +14,7 @@
 	<Title>Windows Azure Web Sites and Cloud Services</Title>
 	<Version>1.0.0</Version>
 	<Source>.\Source</Source>
-	<DependencyChecker>Source\Setup\Dependencies.depi</DependencyChecker>	
+	<DependencyChecker>.\Source\Setup\Dependencies.depi</DependencyChecker>	
 	<CustomProperties>    
 		<Property Name="GitHubRepository" Value="https://github.com/WindowsAzure-TrainingKit/Demo-HelloWorldWSCS" />
 	</CustomProperties>
