@@ -6,7 +6,7 @@
 
 Demos are sets of step-by-step guides that are designed to help you learn how to use key Windows Azure services and features. Each demo provides instructions to guide you through the process of developing a complete application.
 
-This demo demonstrates how to quickly build a simple ASP.NET MVC4 Web Application using Visual Studio 2012 and deploy the aplication to Windows Azure Web Sites. The second segment of this demo shows how to create a multi-tier Cloud Service from the MVC Web Application.
+This demo demonstrates how to quickly build a simple ASP.NET MVC4 Web Application using Visual Studio 2012 and deploy the application to Windows Azure Web Sites. The second segment of this demo shows how to create a multi-tier Cloud Service from the MVC Web Application.
 
 > **Note:** You can download the latest build of the Windows Azure Training Kit which includes a tested version of this Demo from here: http://bit.ly/WindowsAzureTK.
 
