@@ -173,8 +173,6 @@ git push azure master
 	> **Speaking point:** 
 	>
 	Here we can manage the scaling options of our Web Site, such as the Web Site mode which can be Shared or Reserved .In Shared mode, all Web Sites share the servers and are created in the same geographical-region; Reserved mode implies that all Web Sites in a given region run on dedicated virtual machines. Reserved mode provides your sites more processing power and performance and allows you to scale your instance count and size. We can also change the Shared Instance count, denoting the number of processes dedicated to a Web Site. By changing this setting, you can scale out your Web Site for increased throughput and availability. Similarly, we can adjust the Instance size and Instance count for Reserved mode.
-
-	> **Speaking Point:** 
 	>
 	Now we will see how we can publish our Web Site as a **Cloud Service** in **Windows Azure**
 
